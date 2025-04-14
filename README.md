@@ -4,7 +4,7 @@
 
 (Provide a brief overview of the project here. Explain it's a template for Python projects, including standard structure and generic AI rules.)
 
-**This template is specifically designed for development using the [Cursor](https://cursor.sh/) editor**, which integrates AI capabilities and utilizes the rules defined in the `.cursor/rules/` directory. While the code structure is standard Python, using Cursor is highly recommended to fully leverage the AI-assisted development workflow this template facilitates.
+**This template is specifically designed for development using the [Cursor](https://cursor.sh/) editor.** The integrated AI capabilities and the project-specific instructions within the `.cursor/rules/` directory are essential components of the intended workflow. Using an editor other than Cursor will prevent you from leveraging these core features.
 
 This template is maintained by Shaun Tyler (styler-ai).
 
@@ -30,7 +30,7 @@ This template is maintained by Shaun Tyler (styler-ai).
    * **Update this `README.md` file to describe your specific project.** (Replace the sections above with your project's details).
    * Update the `LICENSE` file with the current year and your full name/organization.
 5. **Add Project-Specific Rules:** Review the generic rules in `.cursor/rules/`. Create a **new** project-specific rule file (e.g., `myproject-rules.mdc`) in `.cursor/rules/` to define rules unique to your project (architecture details, key components, specific workflows, etc.). Do **not** modify the generic rules directly unless contributing back to the template.
-6. Follow the installation steps below to set up your development environment.
+6. Ensure you are using the Cursor editor and follow the installation steps below.
 
 ---
 **(Note to project author: Replace the content above this line with your project-specific README content. Keep the sections below as a starting point.)**
@@ -38,14 +38,16 @@ This template is maintained by Shaun Tyler (styler-ai).
 
 ## Getting Started (For a Project Created from this Template)
 
-**(Note: This template is intended for use with the Cursor editor - see https://cursor.sh/)**
+**(Note: This template requires the Cursor editor for its intended AI-assisted workflow - see https://cursor.sh/)**
 
 ### Prerequisites
 
-* Python 3.8+
-* pip
-* Git (for version control)
-* (Any other system dependencies, e.g., `make` if using the Makefile)
+*   **Cursor Editor:** Version >= 0.48.0 or later
+*   **PowerShell:** Version 5.1 or later (for setup script and terminal interaction on Windows)
+*   Python 3.8+
+*   pip
+*   Git (for version control)
+*   (Any other system dependencies, e.g., `make` if using the Makefile)
 
 ### Installation
 
