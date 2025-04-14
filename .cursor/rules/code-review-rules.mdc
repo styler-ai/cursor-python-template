@@ -1,0 +1,159 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Code Review Guidelines
+
+## General Code Review Principles
+
+- Review for quality, not just correctness
+- Be constructive and respectful in feedback
+- Focus on the code, not the author
+- Review in manageable chunks (under 400 lines)
+- Respond to reviews promptly
+- Seek to understand before suggesting changes
+- Provide context and rationale for feedback
+- Cite standards and documentation when applicable
+
+## What to Look For
+
+### Functionality
+- Does the code work as intended?
+- Are all edge cases handled?
+- Is error handling comprehensive?
+- Are there any potential race conditions?
+- Does it handle invalid inputs gracefully?
+
+### Design
+- Does the code follow SOLID principles?
+- Is the code properly modularized?
+- Are interfaces clean and well-defined?
+- Is there proper separation of concerns?
+- Does it follow existing design patterns?
+
+### Readability
+- Is the code easy to understand?
+- Are variables, functions, and classes named clearly?
+- Is complex logic adequately commented?
+- Is the code structure consistent with the codebase?
+- Are there any magic numbers or strings?
+
+### Performance
+- Are there obvious performance issues?
+- Are expensive operations optimized?
+- Is database access efficient?
+- Are appropriate data structures used?
+- Are there potential memory leaks?
+
+### Security
+- Are inputs properly validated?
+- Is sensitive data handled securely?
+- Are authentication and authorization implemented correctly?
+- Are there potential injection vulnerabilities?
+- Is error handling revealing sensitive information?
+
+### Testing
+- Are there sufficient tests?
+- Do tests cover edge cases?
+- Are tests clear and maintainable?
+- Do tests verify behavior, not implementation?
+- Is test setup/teardown properly managed?
+
+## PR Requirements
+
+- PRs must include appropriate tests
+- PRs must include documentation updates when applicable
+- PRs must pass all CI/CD checks
+- PRs must be reasonably sized (<400 lines when possible)
+- PRs must include a clear description of changes
+- PRs should reference related issues
+- PRs should not include unrelated changes
+
+## Review Process
+
+1. Author submits a PR with description
+2. Automated checks run (linting, tests, etc.)
+3. Reviewers examine the code within 2 working days
+4. Authors address feedback promptly
+5. Reviewers verify changes address feedback
+6. PR approved once all feedback is addressed
+7. PR merged by author after approval
+
+## AI Agent Self-Review Guidelines
+
+- As an AI agent, review your own code before submitting changes
+- Apply project-specific patterns and standards consistently
+- Verify all edge cases are handled in your generated code
+- Ensure security best practices are followed, especially for user input
+- Check for completion of all requirements in the task
+- Validate naming conventions match project standards
+- Verify error handling is comprehensive
+- Check that comments are meaningful and necessary
+- Ensure code is idiomatic to the project's style
+- Verify performance implications, especially for database or API operations
+- Confirm all dependencies are properly managed
+- Test for race conditions in asynchronous code
+- Verify accessibility standards are met for UI components
+- Check for hardcoded values that should be configurable
+- Ensure backward compatibility with existing features
+- Review your own reasoning process for potential logical errors
+
+## AI-Assisted Code Reviews
+
+### For AI Reviewers
+
+- Prioritize critical issues (security, functionality, performance)
+- Provide specific, actionable feedback
+- Suggest concrete improvements with code examples
+- Avoid abstract criticism without solutions
+- Check for adherence to project conventions
+- Verify documentation matches implementation
+- Assess test quality and coverage
+- Identify potential edge cases
+- Look for code smells and anti-patterns
+- Check for naming inconsistencies
+
+### For Code Authors
+
+- Request AI review before human review
+- Address AI feedback before requesting human review
+- Include rationale for decisions that conflict with AI feedback
+- Use AI suggestions to improve code quality
+- Document decisions when choosing to ignore AI advice
+
+## Self-Review Checklist
+
+Before submitting for review:
+
+- [ ] Does my code compile/run without errors?
+- [ ] Have I added appropriate tests?
+- [ ] Have I updated relevant documentation?
+- [ ] Have I removed debug statements?
+- [ ] Have I addressed all requirements?
+- [ ] Have I followed coding standards?
+- [ ] Have I checked for security issues?
+- [ ] Have I run static analysis tools?
+- [ ] Is my PR description clear and complete?
+- [ ] Have I referenced related issues?
+
+## Response Guidelines
+
+### For Reviewers
+
+- Be specific about what needs to change
+- Explain why a change is needed, not just what
+- Distinguish between required and suggested changes
+- Provide positive feedback, not just criticism
+- Ask questions rather than making accusations
+- Respond within agreed timeframes
+
+### For Authors
+
+- Thank reviewers for their time and feedback
+- Respond to all comments
+- Explain your reasoning when disagreeing
+- Make requested changes promptly
+- Ask for clarification when needed
+- Mark resolved comments appropriately

@@ -1,0 +1,178 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: Rules for Cursor AI startup and initialization process
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+# Cursor AI Startup Rules
+
+## Required Startup Sequence
+
+1. **Rules Review**
+   - MUST read all files in .cursor/rules/ directory
+   - MUST analyze patterns across rule files
+   - MUST identify key project standards
+   - MUST understand rule application contexts
+   - MUST note any conflicting rules
+   - MUST verify rule file completeness
+
+2. **Project Analysis**
+   - MUST read all files via MCP server in:
+     * src/ directory
+     * docs/ directory
+     * tests/ directory
+   - MUST examine project structure
+   - MUST identify component relationships
+   - MUST understand file organization
+   - MUST note key configuration files
+   - MUST identify build and deployment scripts
+
+3. **Project Plan Review**
+   - MUST read project plan file
+   - MUST analyze project goals and architecture
+   - MUST review implementation phases
+   - MUST understand current project status
+   - MUST identify active development areas
+   - MUST note planned future work
+
+## Verification Requirements
+
+Before proceeding with user requests, MUST verify ALL:
+- MUST verify project plan is fully understood
+- MUST verify core components and relationships are clear
+- MUST verify test suite structure and purpose is understood
+- MUST verify documentation organization is comprehended
+- MUST verify script utilities and uses are known
+- MUST verify current project phase is identified
+- MUST verify development guidelines are internalized
+- MUST verify project structure is mapped
+- MUST verify build and deployment process is understood
+- MUST verify configuration requirements are known
+- MUST verify dependencies and requirements are clear
+
+## Response Format Rules
+
+MUST summarize understanding in this format:
+```markdown
+1. Project Status:
+   - Current phase
+   - Completed components
+   - In-progress work
+   - Next priorities
+   - Known issues
+   - Blocking factors
+
+2. Core Components:
+   - List of key modules
+   - Their relationships
+   - Implementation status
+   - Dependencies
+   - Integration points
+   - Configuration needs
+
+3. Development Context:
+   - Active test coverage
+   - Documentation status
+   - Available tooling
+   - Project guidelines
+   - Build process
+   - Deployment requirements
+```
+
+## Re-run Triggers
+
+MUST re-run startup routine when:
+- Switching to new project branch
+- After major project updates
+- When context seems outdated
+- When unsure about project state
+- After significant code changes
+- When switching development focus
+- After environment changes
+- When encountering unexpected behavior
+
+## AI Assistant Requirements
+
+1. **Active Learning**
+   - MUST take initiative to understand unclear areas
+   - MUST ask clarifying questions when needed
+   - MUST verify assumptions
+   - MUST document knowledge gaps
+   - MUST seek missing information
+   - MUST validate understanding
+
+2. **Context Maintenance**
+   - MUST track project state
+   - MUST note changes during session
+   - MUST update understanding as needed
+   - MUST maintain component relationships
+   - MUST track configuration changes
+   - MUST monitor build status
+
+3. **Efficient Operation**
+   - MUST focus on relevant components
+   - MUST skip redundant checks
+   - MUST prioritize user needs
+   - MUST optimize file access
+   - MUST minimize redundant operations
+   - MUST maintain performance
+
+4. **Communication**
+   - MUST acknowledge completion of routine
+   - MUST share important insights
+   - MUST note any concerns or gaps
+   - MUST report knowledge limitations
+   - MUST suggest improvements
+   - MUST request clarification when needed
+
+## Error Handling Rules
+
+1. **File Access Errors**
+   - MUST report missing files
+   - MUST note permission issues
+   - MUST document access failures
+   - MUST suggest alternatives
+   - MUST request access if needed
+
+2. **Understanding Gaps**
+   - MUST identify unclear areas
+   - MUST document missing context
+   - MUST request clarification
+   - MUST note assumptions made
+   - MUST verify understanding
+
+3. **Rule Conflicts**
+   - MUST identify conflicting rules
+   - MUST document conflicts
+   - MUST request resolution
+   - MUST follow most specific rule
+   - MUST note exceptions
+
+## Documentation Requirements
+
+1. **Knowledge Gaps**
+   - MUST document missing information
+   - MUST note unclear areas
+   - MUST list assumptions
+   - MUST track questions
+   - MUST record findings
+
+2. **Understanding Updates**
+   - MUST update knowledge base
+   - MUST correct misunderstandings
+   - MUST add new insights
+   - MUST remove outdated information
+   - MUST maintain accuracy
+
+3. **Session Tracking**
+   - MUST note session start
+   - MUST record major changes
+   - MUST track context shifts
+   - MUST document decisions
+   - MUST maintain history 

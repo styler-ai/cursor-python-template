@@ -1,0 +1,98 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: Guidelines for context detection and management patterns
+globs:
+  - "**/*.py"
+  - "**/*.ps1"
+---
+
+# Context Detection Patterns
+
+## Context Types
+
+- **Project Context**: Overall project structure, architecture, and design patterns
+- **File Context**: Content, purpose, and relationships of specific files
+- **Function Context**: Purpose, inputs, outputs, and behavior of functions
+- **Variable Context**: Meaning, scope, and usage of variables
+- **Execution Context**: Runtime state, environment variables, and configuration
+
+## Context Detection Strategies
+
+- Use regex pattern matching for identifying code structures
+- Implement AST (Abstract Syntax Tree) parsing for detailed code analysis
+- Apply vector embeddings for semantic similarity search
+- Use file path and naming conventions for initial classification
+- Implement content-based fingerprinting for file identification
+
+## Context Storage
+
+- Store context metadata in SQLite database
+- Use structured JSON for complex context information
+- Maintain context relationships through reference tables
+- Implement versioning for context evolution tracking
+- Use efficient indexing for fast context retrieval
+
+## Context Patterns
+
+### Import Pattern
+```python
+# Pattern for detecting module dependencies
+import re
+import_pattern = re.compile(r'(?:from\s+([.\w]+)\s+)?import\s+([*\w, ]+)(?:\s+as\s+([.\w]+))?')
+```
+
+### Function Definition Pattern
+```python
+# Pattern for detecting function definitions
+function_pattern = re.compile(r'def\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\(([^)]*)\)\s*(?:->\s*([^:]+))?\s*:')
+```
+
+### Class Definition Pattern
+```python
+# Pattern for detecting class definitions
+class_pattern = re.compile(r'class\s+([a-zA-Z_][a-zA-Z0-9_]*)(?:\s*\(([^)]*)\))?\s*:')
+```
+
+### Variable Assignment Pattern
+```python
+# Pattern for detecting variable assignments
+assignment_pattern = re.compile(r'([a-zA-Z_][a-zA-Z0-9_]*)\s*=\s*(.+)')
+```
+
+## Context Extraction Guidelines
+
+- Extract context incrementally during code analysis
+- Prioritize extracting context from docstrings and comments
+- Analyze function parameters and return types for type context
+- Identify variable usage patterns across the codebase
+- Track context dependencies between different code elements
+
+## Context Retrieval
+
+- Implement relevance scoring for context search results
+- Use semantic similarity for fuzzy context matching
+- Prioritize recent and frequently accessed context
+- Consider code proximity for context relevance
+- Implement context caching for performance optimization
+
+## AI-Optimized Context Detection
+
+- Design context patterns that are AI-recognizable
+- Include metadata tags for different context types
+- Structure context information hierarchically
+- Use consistent naming patterns for context elements
+- Implement semantic markers for boundary detection
+- Create explicit relationship indicators between context elements
+- Document expected patterns in context extraction
+- Provide examples of correct context identification
+- Define prioritization rules for conflicting contexts
+- Maintain a context taxonomy for classification
+- Include relevance metrics for context evaluation
+- Structure context retrieval APIs for AI consumption
+- Document context evaluation and ranking criteria
+- Create standardized context templates for common patterns
+- Include confidence scores with extracted contexts 

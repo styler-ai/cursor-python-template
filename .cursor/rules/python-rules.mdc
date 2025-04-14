@@ -1,0 +1,159 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: Python-specific coding standards for ContextKeeper
+globs:
+  - "**/*.py"
+---
+
+# Python Coding Standards
+
+## Code Style
+
+- Follow PEP 8 guidelines for Python code style
+- Use 4 spaces for indentation, not tabs
+- Limit lines to 88 characters (Black formatter compatible)
+- Use snake_case for functions, methods, and variables
+- Use PascalCase for class names
+- Use UPPERCASE for constants
+- Add docstrings to all public functions, classes, and methods
+
+## Imports
+
+- Order imports as follows:
+  1. Standard library imports
+  2. Related third-party imports
+  3. Local application/library specific imports
+- Use absolute imports rather than relative imports
+- Group imports (standard, third-party, local) with a blank line between groups
+- Import specific functions/classes when only a few are needed
+
+```python
+# Standard library
+import os
+import sys
+from datetime import datetime
+
+# Third-party
+import numpy as np
+import sqlalchemy as sa
+
+# Local
+from contextkeeper.memory import MemoryManager
+from contextkeeper.utils import format_context
+```
+
+## Documentation
+
+- Use Google-style docstrings for all functions, classes, and methods:
+
+```python
+def get_context(context_id, max_age=None):
+    """Retrieve context by ID.
+    
+    Args:
+        context_id (str): The unique identifier for the context.
+        max_age (int, optional): Maximum age in seconds. Defaults to None.
+        
+    Returns:
+        dict: The context data if found, None otherwise.
+        
+    Raises:
+        ContextNotFoundError: If the context doesn't exist.
+    """
+```
+
+- Include type hints for function parameters and return values:
+
+```python
+def get_context(context_id: str, max_age: Optional[int] = None) -> Dict[str, Any]:
+```
+
+## Error Handling
+
+- Use specific exception types rather than bare `except:` clauses
+- Create custom exception classes for domain-specific errors
+- Log exceptions with appropriate context information
+- Use context managers (`with` statements) for resource cleanup
+
+```python
+try:
+    context = memory_manager.get_context(context_id)
+except ContextNotFoundError as e:
+    logger.error(f"Failed to find context {context_id}: {e}")
+    raise
+except Exception as e:
+    logger.exception(f"Unexpected error retrieving context {context_id}")
+    raise ContextOperationError(f"Failed to retrieve context: {e}") from e
+```
+
+## Class Structure
+
+- Follow this order for class methods:
+  1. Class methods
+  2. Static methods
+  3. Init method
+  4. Properties
+  5. Public methods
+  6. Private methods
+- Use dunder methods as needed, but don't override unnecessarily
+- Prefer composition over inheritance when possible
+- Use abstract base classes for shared interfaces
+
+## Testing
+
+- Write unit tests for all public functions and methods
+- Use `pytest` for testing
+- Organize tests to mirror the package structure
+- Use fixtures for common test setup
+- Mock external dependencies in unit tests
+- Aim for high test coverage (>80%)
+
+## Asynchronous Code
+
+- Prefer `async`/`await` over callbacks
+- Use `asyncio` for asynchronous operations
+- Mark async functions with `async def`
+- Use `await` for awaiting coroutines
+- Use proper task management with `create_task` and `gather`
+
+```python
+async def process_contexts(context_ids: List[str]) -> List[Dict]:
+    """Process multiple contexts concurrently."""
+    tasks = [process_single_context(cid) for cid in context_ids]
+    return await asyncio.gather(*tasks)
+```
+
+## Project-Specific Conventions
+
+- Prefix class names with module area: `MemoryManager`, `ContextLoader`
+- Use dependency injection for loosely coupled components
+- Store configuration in Python modules, not JSON or INI files
+- Use SQLAlchemy models for database entities
+- Use Vector embeddings for semantic storage and retrieval
+- Implement proper progress reporting for long-running operations
+- Use standard logging framework with appropriate log levels
+
+## AI-Optimized Python Patterns
+
+- Use explicit type annotations for all function signatures
+- Structure modules with consistent section ordering
+- Use descriptive docstrings with standardized format
+- Create clear class hierarchies with explicit inheritance
+- Implement interface classes for shared functionality
+- Use dataclasses or named tuples for data containers
+- Structure exception hierarchies logically
+- Follow consistent naming patterns for related functions
+- Document expected input/output ranges and formats
+- Include examples in docstrings for complex operations
+- Use named constants for magic values
+- Create utility functions with single responsibilities
+- Implement consistent validation patterns
+- Document threading and concurrency expectations
+- Structure code with logical groupings by functionality
+- Use context managers to ensure proper resource cleanup
+- Implement consistent error handling patterns
+- Maintain parameter naming consistency across APIs 

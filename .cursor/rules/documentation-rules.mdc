@@ -1,0 +1,228 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: Documentation standards and patterns for ContextKeeper
+globs:
+  - "docs/**/*"
+  - "**/*.md"
+  - "**/*.rst"
+  - "**/*.py"
+---
+
+# Documentation Standards
+
+## Documentation Structure
+
+- Use Sphinx for generating documentation
+- Organize documentation into logical sections
+- Add cross-references between related sections
+- Include diagrams for complex components
+- Group related documentation in directories
+- Use reStructuredText directives for enhanced documentation
+- Generate API reference from docstrings
+
+## Module-Level Documentation
+
+- Every module must start with a module-level docstring
+- Include the module's purpose at the beginning
+- List key features in a numbered list format
+- Include usage examples when appropriate
+- Document any design patterns used in the module
+- List the main classes/functions in the module
+
+## Class-Level Documentation
+
+- Document the class purpose and responsibility
+- Explain which design pattern(s) the class implements
+- List key attributes with descriptions
+- Document inheritance relationships and reasons
+- Include usage examples for complex classes
+- Note any performance considerations
+
+## Method-Level Documentation
+
+- Start with a clear statement of what the method does
+- Explain HOW the method accomplishes its purpose
+- Document all parameters using NumPy-style format
+- Always document return values
+- Include any exceptions that might be raised
+- Provide usage examples for complex methods
+
+## Docstring Format
+
+```python
+"""
+Brief description of purpose.
+
+This method/class/module [function] by:
+1. First step
+2. Second step
+3. Third step
+
+Parameters
+----------
+param_name : type
+    Description
+
+Returns
+-------
+return_type
+    Description of return value
+"""
+```
+
+## Style Guidelines
+
+- Use consistent indentation in docstrings
+- Keep line length under 80 characters in docstrings
+- Use full sentences with proper punctuation
+- Be specific and avoid vague descriptions
+- Update documentation when code changes
+- Use code formatting for code references
+
+## What vs How Documentation
+
+- Documentation should clearly explain both WHAT a component does (its purpose and responsibility) and HOW it accomplishes that (implementation approach, algorithms, patterns used)
+- Focus on intent and design decisions, not just implementation details
+- Explain why certain approaches were chosen
+
+## Documentation Files
+
+- README.md: Project overview and quick start
+- CONTRIBUTING.md: Contribution guidelines
+- IMPLEMENTATION_PLAN.md: Detailed implementation status
+- docs/: Contains Sphinx documentation source
+- docs/api/: API reference documentation
+- docs/guides/: User and developer guides
+
+## Sphinx Documentation Management
+
+### When to Build Documentation
+
+- After ANY code changes, even small ones
+- After updating any documentation files
+- After changing project structure
+- Before committing changes to the repository
+- When adding new features or functionality
+- When fixing bugs or making corrections
+- When refactoring existing code
+
+### Build Process
+
+- Navigate to the docs directory: cd docs
+- Run the Sphinx build command: .\make.bat html
+- Check for ANY warnings or errors in the build output
+- Address ALL warnings and errors before proceeding
+- Verify the generated documentation visually in a browser
+- Check all links, references, and cross-references
+
+### Error Resolution
+
+- Treat ALL Sphinx warnings as errors that must be fixed
+- Fix missing references immediately
+- Correct invalid directives and syntax
+- Resolve broken links or references
+- Update outdated references to code components
+- Never commit documentation with build errors or warnings
+
+## Sphinx Documentation Structure
+
+### Main Sections
+
+- docs/source/: Main documentation source files
+- docs/source/user_guide/: End-user facing documentation
+- docs/source/architecture/: System design documentation
+- docs/source/api_reference/: API documentation
+- docs/source/developer_guide/: Guidelines for contributors
+- docs/source/testing/: Testing documentation
+- docs/source/reference/: Reference materials (glossary, etc.)
+
+### Standard Layout
+
+- docs/source/index.rst: Root document with main toctree
+- docs/source/*/index.rst: Section index files with section-specific toctrees
+- docs/_static/: Static files (images, diagrams, CSS)
+- docs/_templates/: Custom templates for theme customization
+- docs/scripts/: Utility scripts for documentation generation
+
+### File Naming
+
+- Use snake_case for all documentation file names
+- Use descriptive names that clearly indicate content
+- Each main section should have its own index.rst file
+- Use consistent naming patterns for related documents
+
+## Architecture Diagram Generation
+
+### Diagram Types
+
+- System Architecture
+  - Purpose: Show overall system components and their relationships
+  - Elements: Include all major system components, interfaces, and data stores
+  - Style: Top-down hierarchy with clear layers
+  - Filename: system_architecture.png
+
+- Component Relationships
+  - Purpose: Visualize dependencies and interactions between components
+  - Elements: Show components grouped by logical layers
+  - Style: Layered architecture with directional arrows indicating dependencies
+  - Filename: component_relationships.png
+
+- Data Flow
+  - Purpose: Illustrate how data moves through the system
+  - Elements: Components with numbered sequence indicators
+  - Style: Sequential flow with different arrow styles for different types of data
+  - Filename: data_flow.png
+
+### Generation Approach
+
+- Primary Method: Use Python with PIL for platform-independent diagram generation
+- Script Location: docs/scripts/generate_architecture_images.py
+- Execution: Run `python docs/scripts/generate_architecture_images.py` to regenerate all diagrams
+- Output Location: docs/_static/ directory (automatically referenced in RST files)
+
+## Documentation .gitignore Patterns
+
+### File Location
+- docs/.gitignore
+
+### Patterns
+
+#### Build Outputs
+```
+# Sphinx build output
+/build/
+/_build/
+/.doctrees/
+```
+
+#### Generated Files
+```
+# Auto-generated files
+*.mo
+*.pot
+*.so
+*.py[cod]
+*$py.class
+__pycache__/
+```
+
+#### Environment Files
+```
+# Environment related
+.env
+.venv
+env/
+venv/
+ENV/
+```
+
+#### OS Specific
+```
+# OS specific files
+.DS_Store
+Thumbs.db
+``` 

@@ -1,0 +1,127 @@
+---
+description: Best practices for managing project plans and project structure
+globs:
+  - "**/*.md"
+alwaysApply: true
+---
+
+# Project Plan Management
+
+## Core Principles
+
+1. **AI Agent Focus**
+   - Project plan must be structured for clear AI agent understanding
+   - Each line must have a clear purpose and connection to implementation
+   - Dependencies must be explicitly stated
+   - Progress must be easily trackable
+
+2. **Issue Integration**
+   - Every significant item must link to a GitHub issue
+   - Multiple items can reference the same issue when appropriate
+   - Issue references must be clear and unambiguous
+   - Status must be synchronized with GitHub issues
+
+3. **Progress Tracking**
+   - Clear status indicators for each item
+   - Explicit dependencies between items
+   - Regular progress updates
+   - Blocking issues clearly marked
+
+## Required Structure
+
+### Project Overview
+- Clear problem statement
+- Solution architecture
+- Core components with issue links
+- Dependencies and relationships
+
+### Implementation Plan
+- Phases with clear entry/exit criteria
+- Components with issue references
+- Dependencies between items
+- Timeline estimates
+
+### Current Status
+- Completed items with issue links
+- In-progress items with issue links
+- Blocked items with blocking issue links
+- Upcoming items with issue links
+
+### Next Steps
+- Prioritized items with issue links
+- Dependencies clearly stated
+- Blocking factors identified
+- Success criteria defined
+
+## Issue Linking Rules
+
+1. **Reference Format**
+   - Use format: `[#123](mdc:https:/github.com/owner/repo/issues/123)`
+   - Include status: `[#123](mdc:https:/github.com/owner/repo/issues/123) - ✅ Completed`
+   - Multiple items can reference same issue when appropriate
+   - Always use the most specific issue level (epic/story/task)
+
+2. **When to Link**
+   - Link to epics for major components
+   - Link to stories for features
+   - Link to tasks for specific implementation items
+   - Link to blocking issues when items are blocked
+
+3. **Multiple References**
+   - Multiple items can reference same epic when part of same component
+   - Multiple items can reference same story when part of same feature
+   - Multiple items can reference same task when implementation affects multiple areas
+   - Document reason for multiple references
+
+## AI Agent Guidelines
+
+1. **Focus Maintenance**
+   - Always check current phase before proceeding
+   - Verify dependencies are resolved
+   - Don't jump ahead to future phases
+   - Document decisions and rationale
+
+2. **Progress Tracking**
+   - Update status daily
+   - Document blockers immediately
+   - Update issue references when status changes
+   - Maintain clear progress indicators
+
+3. **Decision Making**
+   - Follow phase sequence strictly
+   - Check dependencies before starting work
+   - Document alternative approaches considered
+   - Explain rationale for decisions
+
+## Response Format
+
+When discussing project status:
+```markdown
+1. Current Phase:
+   - Phase name and number
+   - Completion status
+   - Current focus
+   - Next steps
+
+2. Recent Progress:
+   - Completed items with issue links
+   - In-progress items with issue links
+   - Blocked items with blocking issue links
+   - Dependencies
+
+3. Next Actions:
+   - Immediate tasks with issue links
+   - Required resources
+   - Potential blockers
+   - Success criteria
+```
+
+## Verification Checklist
+
+Before proceeding with any work:
+- [ ] Current phase identified
+- [ ] All dependencies resolved
+- [ ] Issue links verified
+- [ ] Status synchronized
+- [ ] No phase conflicts
+- [ ] Clear next steps 

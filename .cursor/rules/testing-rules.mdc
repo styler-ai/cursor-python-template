@@ -1,0 +1,140 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Testing Standards
+
+## Critical Testing Principles
+
+- **Test Pyramid**: Follow the test pyramid with many unit tests, fewer integration tests, and even fewer E2E tests
+- **Tests First**: Write tests before or alongside implementation (TDD or test-as-you-go)
+- **Coverage Goals**: Aim for at least 80% code coverage across the codebase
+- **Test Independence**: Every test should be able to run in isolation
+- **Fast Execution**: Optimize tests to run quickly, especially unit tests
+- **CI Integration**: All tests must be integrated into the CI/CD pipeline
+- **Full Automation**: No manual steps should be required to run tests
+
+## Test Organization
+
+- Store all tests in the dedicated `tests/` directory
+- Mirror the package structure in the test directory
+- Name test files with pattern `test_*.py` or `*_test.py`
+- Group tests by functionality/component
+- Create separate directories for different test types:
+  - `tests/unit/` - for unit tests
+  - `tests/integration/` - for integration tests
+  - `tests/functional/` - for functional tests
+  - `tests/smoke/` - for smoke tests
+  - `tests/e2e/` - for end-to-end tests
+
+## Unit Testing (Highest Priority)
+
+- Write unit tests for ALL functions, classes, and methods without exception
+- Create unit tests during or before implementing the feature (not after)
+- Test each function or method in complete isolation
+- Follow the AAA pattern (Arrange, Act, Assert):
+  ```python
+  def test_get_context():
+      # Arrange
+      context_id = "test-context"
+      memory_manager = MemoryManager()
+      memory_manager.add_context(context_id, {"data": "test"})
+      
+      # Act
+      result = memory_manager.get_context(context_id)
+      
+      # Assert
+      assert result is not None
+      assert result["data"] == "test"
+  ```
+- Use appropriate mocks for external dependencies
+- Test both happy path and error cases
+- Ensure unit tests run in milliseconds
+- Avoid external dependencies (database, filesystem, network)
+- Test error handling and edge cases explicitly
+- Use pytest fixtures for common setup and teardown
+- Test one specific behavior per test function
+- Parameterize tests for multiple test cases
+- Verify all code branches are tested
+- Focus on behavior, not implementation details
+
+## Smoke Testing (Essential)
+
+- Implement smoke tests for all core functionality
+- Run smoke tests automatically for every code change
+- Create a comprehensive smoke test suite that runs in under 5 minutes
+- Verify critical user paths work correctly
+- Test key API endpoints and core functions
+- Include basic data flow tests
+- Test the most common user workflows
+- Keep smoke tests simple and reliable
+- Design smoke tests to catch obvious regressions quickly
+- Include at least one smoke test for each major feature
+- Ensure smoke tests are run first in the CI pipeline
+- Maintain high stability in smoke tests (no flakiness)
+
+## Integration Testing
+
+- Test interactions between multiple components
+- Use real dependencies where practical
+- Set up test databases or services for testing
+- Test typical user workflows across components
+- Verify system behavior rather than implementation details
+- Use appropriate cleanup to prevent test pollution
+- Include database interaction tests
+- Test API boundaries between components
+
+## End-to-End Testing
+
+- Test complete user workflows from start to finish
+- Use real infrastructure, not mocks
+- Test through the user interface where possible
+- Include typical user scenarios
+- Verify data flows correctly through the system
+- Test performance under realistic conditions
+- Include setup and teardown of complete environments
+- Document prerequisites for running E2E tests
+
+## Test Environment
+
+- Use consistent environment configuration for tests
+- Create reproducible test environments
+- Isolate test data from production data
+- Reset databases between test runs
+- Use fixtures for environment setup
+- Document environment requirements
+- Use test.settings or similar for test configuration
+
+## Test Best Practices
+
+- Keep tests independent
+- Avoid test interdependence
+- Use clear, descriptive test names:
+  ```python
+  def test_get_context_returns_none_when_context_not_found():
+      # Test implementation
+  ```
+- Write deterministic tests
+- Avoid random data unless explicitly testing randomness
+- Make tests readable and maintainable
+- Don't test implementation details, test behavior
+- Document test cases that validate requirements
+- Add comments for complex test logic
+
+## AI-Optimized Testing
+
+- Design tests that an AI agent can easily understand and modify
+- Include clear comments explaining test intent and validation criteria
+- Use descriptive function names that clearly indicate what is being tested
+- Structure test files consistently for easier AI analysis
+- Document edge cases explicitly in test files
+- Include test metadata that AI can leverage (e.g., categorization, priority)
+- Create helper functions with clear documentation for test setup
+- Use typed interfaces for test fixtures and mocks
+- Include comprehensive docstrings in test utilities
+- Maintain test patterns that AI agents can identify and reproduce
+- Avoid complex test logic that may confuse AI analysis
+- Document expected failure cases with clear reasoning
+- Structure test data in a format easily processable by AI agents

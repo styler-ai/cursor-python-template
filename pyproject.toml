@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "project_name_placeholder"
+version = "0.1.0"
+description = "A new Python project."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License", # Choose your license
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    # Add dependencies from requirements.txt or list them here
+]
+
+[project.urls]
+"Homepage" = "https://github.com/your_username/your_repository" # Update URL
+"Bug Tracker" = "https://github.com/your_username/your_repository/issues" # Update URL
+
+[project.scripts]
+# command-name = "your_package_name.module:function"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "flake8",
+    "black",
+    "mypy",
+    "isort",
+    "tox",
+    "pre-commit",
+]
+docs = [
+    "sphinx",
+    "sphinx-rtd-theme",
+    # Add other doc dependencies
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+] 

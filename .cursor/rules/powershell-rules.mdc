@@ -1,0 +1,85 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: Standards and best practices for PowerShell scripting
+globs:
+  - "**/*.ps1"
+  - "**/*.psm1"
+---
+
+# PowerShell Coding Standards
+
+## Core PowerShell Principles
+
+- **Use appropriate commands** for the task - PowerShell accepts many command types
+- Remember PowerShell is object-oriented, not just text-based
+- Use approved PowerShell verbs (Get-, Set-, New-, Remove-, etc.) for functions
+- Take advantage of the pipeline for chaining operations
+- Use parameter validation attributes when appropriate
+- PowerShell commands often provide more structured data than alternatives
+
+## Command Selection Guidelines
+
+- Select commands based on the task requirements
+- PowerShell cmdlets (Get-ChildItem, etc.) provide rich object output
+- External commands (grep, etc.) are fine when they're the best tool for the job
+- PowerShell aliases (dir, ls) are acceptable for interactive use
+- Choose commands that provide the right balance of:
+  - Functionality
+  - Performance
+  - Readability
+  - Maintainability
+
+## Naming Conventions
+
+- Use PascalCase for function names: `Get-ContextData`, `Update-MemoryStore`
+- Use PascalCase for parameter names: `$ContextName`, `$SessionData`
+- Use camelCase for variable names: `$contextData`, `$sessionInfo`
+- Use descriptive, meaningful names for all identifiers
+
+## Script Structure
+
+- Begin each script with comment-based help
+- Follow help block with any required modules
+- Place parameter declarations next
+- Use regions to organize code sections
+
+## Error Handling
+
+- Use try/catch blocks for error handling
+- Use `$ErrorActionPreference = 'Stop'` for critical scripts
+- Use `-ErrorAction Stop` for important cmdlets
+- Use `Write-Error` for reporting error conditions
+- Return meaningful error messages with relevant context
+
+## Performance Considerations
+
+- Use `[System.Collections.Generic.List[string]]` instead of arrays for collections that grow
+- Use `Where-Object` scriptblock syntax for better performance
+- Use hashtables for lookups instead of repeated filtering
+- Minimize the use of `ForEach-Object` for large collections
+- Use `Select-Object -First n` to limit processing when possible
+
+## Security Practices
+
+- Never include credentials in scripts
+- Use secure string for sensitive information
+- Sign scripts when deploying to production
+- Set appropriate execution policy for the environment
+- Validate user input before processing
+- Use least-privilege principle when executing commands
+
+## Context-Specific Commands
+
+- Use `Get-Context` to retrieve context information from the store
+- Use `Set-Context` to update context information
+- Use `New-ContextSession` to create a new context session
+- Use `Invoke-ContextQuery` for semantic searches
+- Use `Export-ContextData` to create backups of context data
+- Use `Import-ContextData` to restore context from backups
+- Use `Update-CodeIndex` to refresh the code index
+
+

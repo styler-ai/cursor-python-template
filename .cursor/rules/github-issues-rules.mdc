@@ -1,0 +1,808 @@
+---
+description: Guidelines for managing GitHub issues and their relationship with the project plan
+globs:
+  - ".github/ISSUE_TEMPLATE/*"
+  - "**/*.md"
+alwaysApply: true
+---
+
+# GitHub Issues Management
+
+## Core Principles
+
+1. **Project Plan Integration**
+   - Every GitHub issue must have a corresponding entry in the project plan
+   - The project plan is the source of truth for issue hierarchy and relationships
+   - Issues must reference their exact location in the project plan
+   - All issue updates must be reflected in the project plan
+
+2. **Issue Hierarchy**
+   - Epics represent major components or phases
+   - Stories represent features or significant changes
+   - Tasks represent specific implementation items
+   - Each level must properly reference its parent
+
+3. **Status Management**
+   - Status must be synchronized between issues and project plan
+   - Completed items must be marked in both places
+   - Status changes must be documented with updates
+
+## Required Fields
+
+### For All Issues
+- Title: Must include type prefix (Epic/Story/Task)
+- Description: Clear, detailed explanation
+- Project Plan Reference: Exact location in project plan
+- Status: Current state of the item
+
+### For Epics
+- Overview: High-level description
+- Success Criteria: Clear completion requirements
+- Stories: List of child stories
+- Dependencies: Other epics or external factors
+- Timeline: Rough completion estimate
+
+### For Stories
+- Parent Epic: Reference to containing epic
+- Acceptance Criteria: Specific completion requirements
+- Tasks: List of child tasks
+- Technical Requirements: Implementation details
+- Testing Requirements: Test coverage needs
+
+### For Tasks
+- Parent Story: Reference to containing story
+- Acceptance Criteria: Specific completion requirements
+- Implementation Details: Technical approach
+- Testing Requirements: Test coverage needs
+
+## Rules for Issue Creation
+
+1. **Verification Steps**
+   - Check project plan for existing entry
+   - Verify proper hierarchy placement
+   - Ensure all required fields are present
+   - Validate references to parent items
+
+2. **Documentation**
+   - Update project plan with new issue
+   - Document relationships with other issues
+   - Add to appropriate sections
+   - Maintain proper indentation
+
+3. **Formatting**
+   - Use consistent markdown formatting
+   - Follow template structure
+   - Include proper labels
+   - Add relevant links
+
+## Rules for Issue Updates
+
+1. **Status Changes**
+   - Update both issue and project plan
+   - Document reason for change
+   - Update dependent items
+   - Maintain history
+
+2. **Content Updates**
+   - Keep project plan in sync
+   - Update related items
+   - Document changes
+   - Maintain references
+
+3. **Completion**
+   - Mark as complete in both places
+   - Update dependent items
+   - Document final state
+   - Archive if appropriate
+
+## Common Pitfalls
+
+1. **Inconsistency**
+   - Issues not matching project plan
+   - Missing references
+   - Incomplete updates
+   - Outdated information
+
+2. **Poor Documentation**
+   - Missing required fields
+   - Incomplete descriptions
+   - Unclear relationships
+   - Missing updates
+
+3. **Status Mismatches**
+   - Different states in plan and issues
+   - Incomplete status updates
+   - Missing completion marks
+   - Outdated progress
+
+## Best Practices
+
+1. **Regular Updates**
+   - Daily status checks
+   - Weekly progress reviews
+   - Monthly planning updates
+   - Quarterly reassessment
+
+2. **Documentation**
+   - Keep detailed notes
+   - Maintain clear history
+   - Document decisions
+   - Track changes
+
+3. **Verification**
+   - Regular consistency checks
+   - Status validation
+   - Reference verification
+   - Update confirmation
+
+## Verification Checklist
+
+Before creating/updating issues:
+- [ ] Issue properly placed in project plan
+- [ ] All required fields completed
+- [ ] Correct labels applied
+- [ ] Dependencies identified
+- [ ] References updated
+- [ ] Status consistent
+- [ ] Documentation current
+
+# GitHub Issue Management Guidelines
+
+## Project Plan Integration
+
+### Issue Creation Best Practices
+1. Every task in the project plan should have a corresponding GitHub issue
+2. Issues should be organized hierarchically:
+   - Epics for major components/phases
+   - Features for significant sub-components
+   - Tasks for individual items
+3. Issue numbers should be referenced in the project plan using clickable links: `[#123](mdc:https:/github.com/owner/repo/issues/123)`
+4. Each epic should have a detailed description including:
+   - Overview of the component/phase
+   - Success criteria
+   - Dependencies
+   - Timeline estimates
+5. Each feature/task issue should include:
+   - Clear acceptance criteria
+   - Technical requirements
+   - Related documentation needs
+   - Test requirements
+   - Parent epic reference
+
+### Issue Templates
+```yaml
+name: Epic
+description: Create a new epic for a major component or phase
+title: "Epic: "
+labels: ["type:epic"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Create a new epic for tracking a major component or phase of the project.
+  - type: textarea
+    id: overview
+    attributes:
+      label: Overview
+      description: High-level description of this epic
+      placeholder: "This epic covers..."
+    validations:
+      required: true
+  - type: textarea
+    id: success-criteria
+    attributes:
+      label: Success Criteria
+      description: What needs to be completed for this epic to be considered done?
+      placeholder: "- [ ] Criterion 1\n- [ ] Criterion 2"
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: List any dependencies on other epics or external factors
+  - type: textarea
+    id: timeline
+    attributes:
+      label: Timeline Estimate
+      description: Rough timeline for completion
+```
+
+```yaml
+name: Feature
+description: Create a new feature issue
+title: "Feature: "
+labels: ["type:feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Create a new feature issue for implementing specific functionality.
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Detailed description of the feature
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: What needs to be completed for this feature to be considered done?
+      placeholder: "- [ ] Criterion 1\n- [ ] Criterion 2"
+    validations:
+      required: true
+  - type: textarea
+    id: technical-requirements
+    attributes:
+      label: Technical Requirements
+      description: Technical details and requirements
+  - type: textarea
+    id: testing
+    attributes:
+      label: Testing Requirements
+      description: What tests need to be written?
+  - type: input
+    id: epic
+    attributes:
+      label: Parent Epic
+      description: Reference to the parent epic (e.g. #123)
+    validations:
+      required: true
+```
+
+### Project Plan Format
+Tasks in the project plan should follow this format:
+```markdown
+- [ ] **Component Name** ([Epic #123](mdc:https:/github.com/owner/repo/issues/123))
+  - [ ] Feature 1 ([#124](mdc:https:/github.com/owner/repo/issues/124))
+  - [ ] Feature 2 ([#125](mdc:https:/github.com/owner/repo/issues/125))
+    - Implementation details...
+```
+
+### Labels
+- `type:epic`: Major components/phases
+- `type:feature`: Significant features
+- `type:task`: Individual tasks
+- `type:bug`: Bug fixes
+- `type:docs`: Documentation updates
+- `priority:high`: High priority items
+- `priority:medium`: Medium priority items
+- `priority:low`: Low priority items
+- `component:*`: Specific component labels
+- `status:ready`: Ready for development
+- `status:blocked`: Blocked by dependencies
+
+### Milestones
+Each phase in the project plan should have a corresponding milestone:
+- Phase 0: Setup & Environment
+- Phase 1: Core Database & Scanning
+- Phase 2: Query & Integration
+- Phase 3: VSCode Extension
+- Phase 4: Documentation & Testing
+- Phase 5: Performance & Distribution
+
+### Issue Deletion Workflow
+When removing or reorganizing issues in GitHub, follow these guidelines to maintain consistency between the GitHub repository and project plan:
+
+1. **Never silently delete issue references**
+   - When an issue is closed, merged, or deleted in GitHub, its reference must be preserved in the project plan with a status note.
+   - Do not remove entire lines from the project plan, as this breaks GitHub synchronization.
+
+2. **Proper status annotation patterns**
+   - For completed issues: `([#123](mdc:https:/github.com/owner/repo/issues/123) - ✅ Completed)`
+   - For merged issues: `([#123](mdc:https:/github.com/owner/repo/issues/123) - ↪️ Merged into #456)`
+   - For deprecated issues: `([#123](mdc:https:/github.com/owner/repo/issues/123) - ❌ Deprecated - reason)`
+   - For issues moved elsewhere: `([#123](mdc:https:/github.com/owner/repo/issues/123) - 🔄 Moved to Epic #789)`
+
+3. **Maintain issue traceability**
+   - Document the complete relationship chain when issues are reorganized.
+   - Always include a reference to where the work has been moved.
+   - Use GitHub to cross-reference with comments in both the original and new issues.
+
+4. **Update both sides simultaneously**
+   - When changing issue status or organization in GitHub, immediately update the project plan.
+   - When updating the project plan, ensure GitHub issues reflect the same status.
+   - Use commit messages that clearly indicate issue state changes.
+
+5. **Deletion procedure**
+   - When an issue must be completely removed from the project:
+     a. First add a deprecation note in the project plan with the reason
+     b. Create a commit with this change
+     c. Only then close or delete the issue in GitHub
+     d. Add a comment to related issues explaining the deletion
+
+These practices ensure the project plan remains a reliable record of all work, including changes to the project scope and organization.
+
+### Issue Hierarchy Best Practices
+
+1. **Three-Level Issue Hierarchy**
+   - **Epics**: High-level initiatives or major components (e.g., "Database Layer", "Scanner System")
+   - **Features/Stories**: Mid-level functionality units belonging to epics
+   - **Tasks**: Individual implementation items with concrete deliverables
+
+2. **Issue Creation Guidelines**
+   - Create issues at the appropriate level of granularity
+   - Epics should represent substantial work (weeks/months)
+   - Features should be completable within days/weeks
+   - Tasks should be completable in hours/days
+   - Avoid creating tasks that are too small (e.g., single line changes)
+
+3. **Issue Naming Conventions**
+   - Epics: `Epic: [Component Name]`
+   - Stories: `Story: [Feature Name]`
+   - Tasks: `Task: [Implementation Item]`
+   - No component prefixes (use labels instead)
+
+4. **Issue Referencing in Project Plan**
+   - Main components (level 1): Link to Epic issues
+   - Significant features (level 2): Link to Feature issues
+   - Critical implementation details: Link to Task issues
+   - Nested details under features: No issue links needed
+
+5. **Consistent Project Plan Structure**
+   ```markdown
+   - [ ] **Component Name** ([Epic #123](mdc:https:/github.com/owner/repo/issues/123))
+     - [ ] Key Feature 1 ([#124](mdc:https:/github.com/owner/repo/issues/124))
+       - [ ] Critical Implementation Detail ([#125](mdc:https:/github.com/owner/repo/issues/125))
+       - [ ] Minor detail (no issue required)
+     - [ ] Key Feature 2 ([#126](mdc:https:/github.com/owner/repo/issues/126))
+   ```
+
+6. **Cross-Referencing**
+   - Epic issues should list all child features in their description
+   - Feature issues should reference their parent epic
+   - Task issues should reference their parent feature
+   - Use GitHub's linking syntax: `Part of #123`
+
+7. **Labels for Classification**
+   - Apply consistent labels to categorize issues:
+     - Type: `type:epic`, `type:feature`, `type:task`, `type:bug`
+     - Component: `component:database`, `component:scanner`, etc.
+     - Priority: `priority:high`, `priority:medium`, `priority:low`
+     - Status: `status:ready`, `status:blocked`
+
+8. **Milestone Assignment**
+   - Group issues by project phase or sprint
+   - Assign all related issues to the same milestone
+   - Track progress at the milestone level
+
+### Issue Description Formatting
+
+1. **Epic Description Template**
+```markdown
+# [Epic Name]
+
+## Overview
+[High-level description]
+
+## Success Criteria
+- [ ] Criterion 1
+- [ ] Criterion 2
+
+## Stories
+### [Category 1]
+- #XX [Story 1]
+- #YY [Story 2]
+
+### [Category 2]
+- #ZZ [Story 3]
+- #WW [Story 4]
+
+## Dependencies
+- [Dependency 1] (#XX)
+- [Dependency 2] (#YY)
+
+## Timeline
+[Timeline estimate]
+```
+
+2. **Story/Feature Description Template**
+```markdown
+# [Story/Feature Name]
+
+Part of Epic #XX
+
+## Overview
+[Detailed description]
+
+## Acceptance Criteria
+- [ ] Criterion 1
+- [ ] Criterion 2
+```
+
+### Issue Management Best Practices
+
+1. **Duplicate Issue Prevention**
+   - Before creating new issues, search for similar existing ones
+   - When finding duplicates:
+     a. Add a comment linking to the main issue
+     b. Close duplicate with clear explanation
+     c. Update any references to use the main issue number
+   - Keep the more detailed/better structured issue when duplicates found
+   - Transfer any unique information from duplicate to main issue before closing
+
+2. **Consistent Naming**
+   - Remove component prefixes from titles (e.g., "[database]") - use labels instead
+   - Use consistent prefixes:
+     - "Epic: " for epics
+     - "Feature: " or "Story: " for features/stories
+     - "Task: " for specific tasks
+   - Keep titles concise but descriptive
+   - Use same terminology across related issues
+
+3. **Label Management**
+   - Every issue must have:
+     - A type label (epic/feature/story/task)
+     - A priority label (high/medium/low)
+     - A component label (database/scanner/query/etc.)
+   - Additional labels as needed:
+     - Phase labels (phase-1, phase-2, etc.)
+     - Status labels (ready, blocked, etc.)
+   - Remove outdated/incorrect labels promptly
+   - Keep label set consistent across all issues
+
+4. **Issue Relationships**
+   - Stories must reference their parent epic in description
+   - Tasks must reference their parent story
+   - Use GitHub's built-in linking with #XX references
+   - Keep relationship chain complete and up-to-date
+   - Update all related issues when changing relationships
+
+5. **Description Maintenance**
+   - Keep descriptions up-to-date with current status
+   - Use proper markdown formatting
+   - Include clear section headers
+   - Update acceptance criteria as requirements change
+   - Maintain proper newlines and spacing
+   - No literal "\n" characters - use actual newlines
+   - Use consistent indentation
+
+6. **Issue Quality Standards**
+   - Every issue must have a clear description
+   - Include concrete acceptance criteria
+   - List all dependencies explicitly
+   - Add relevant technical details
+   - Include testing requirements
+   - Keep formatting consistent
+   - Regular review and cleanup of issue descriptions
+
+### Issue Creation and Update Workflow
+
+1. **When to Check for Duplicates**
+   - BEFORE creating any new issue
+   - When updating the project plan with new tasks
+   - When converting existing tasks to issues
+   - When receiving feature requests or bug reports
+   - Before starting work on any task
+   - When linking related issues
+   - During epic/story reorganization
+
+2. **Duplicate Detection Process**
+   - Search by exact title
+   - Search by key terms and components
+   - Review issues in the same epic/component
+   - Check closed issues as well
+   - Review issues referenced in the project plan
+   - Check for similar tasks under different epics
+
+3. **Issue Connection Points**
+   - When creating a new epic
+     * Search for existing stories that should belong to it
+     * Review project plan for related tasks
+     * Check for orphaned issues that might fit
+   - When adding a new story
+     * Must identify parent epic first
+     * Look for related existing tasks
+     * Check for duplicate stories in other epics
+   - When creating tasks
+     * Must link to parent story
+     * Check for similar tasks in related stories
+
+4. **Issue Formatting Verification**
+   - Before saving any issue, verify:
+     * Proper markdown formatting
+     * No literal newline characters (\n)
+     * Correct section headers
+     * Proper indentation
+     * Working issue links (#XX references)
+     * Correct label set
+   - After saving:
+     * Preview the rendered markdown
+     * Verify all links work
+     * Check label visibility
+     * Ensure proper hierarchy display
+
+5. **Issue Relationship Maintenance**
+   - Regular checkpoints for verification:
+     * After project plan updates
+     * During sprint planning
+     * When closing issues
+     * When reorganizing epics
+     * Before major releases
+   - What to verify:
+     * Epic-to-story connections
+     * Story-to-task connections
+     * Cross-references between related issues
+     * Project plan alignment
+     * Label consistency
+     * Milestone assignments
+
+6. **Issue Update Triggers**
+   - Check and update issue formatting when:
+     * Editing any issue description
+     * Converting tasks to issues
+     * Merging duplicate issues
+     * Moving issues between epics
+     * Updating the project plan
+     * Receiving new requirements
+     * Changing issue status
+   - Update related issues when:
+     * Changing epic structure
+     * Modifying acceptance criteria
+     * Adding new dependencies
+     * Closing or deprecating issues
+     * Merging duplicates
+
+### Common Pitfalls and Required Verifications
+
+1. **Pre-Creation Checklist**
+   - [ ] Search for duplicates using EXACT title match
+   - [ ] Search for duplicates using component/topic keywords
+   - [ ] Check closed issues for similar items
+   - [ ] Verify parent epic exists (for stories/tasks)
+   - [ ] Check project plan for related items
+   - [ ] Review orphaned issues in the component
+
+2. **Naming and Structure Verification**
+   - [ ] NO component prefixes in titles (e.g., NO "[database]")
+   - [ ] Correct prefix used (Epic:/Feature:/Story:/Task:)
+   - [ ] Title matches template format
+   - [ ] Description uses proper markdown (NO literal \n characters)
+   - [ ] All sections present according to templates
+   - [ ] Preview markdown before saving
+
+3. **Required Labels Checklist**
+   Must have ALL of:
+   - [ ] Type label (exactly ONE of):
+     * `type:epic` for epics
+     * `type:feature` or `type:story` (not both) for features
+     * `type:task` for tasks
+   - [ ] Priority label (exactly ONE of):
+     * `priority:high`
+     * `priority:medium`
+     * `priority:low`
+   - [ ] Component label (exactly ONE of):
+     * `component:database`
+     * `component:scanner`
+     * `component:query`
+     * etc.
+
+4. **Relationship Verification**
+   - [ ] Parent epic linked in story description
+   - [ ] Parent story linked in task description
+   - [ ] Cross-references use proper #XX format
+   - [ ] All referenced issues exist and are open
+   - [ ] No circular dependencies
+   - [ ] Project plan references match
+
+5. **Description Quality Checks**
+   - [ ] Overview section is clear and complete
+   - [ ] Acceptance criteria are specific and testable
+   - [ ] Dependencies are explicitly listed
+   - [ ] Technical requirements are detailed
+   - [ ] Testing requirements are included
+   - [ ] No placeholder text remains
+
+6. **Project Plan Synchronization**
+   - [ ] Issue appears in correct hierarchy level
+   - [ ] Links use correct format
+   - [ ] Status indicators are present and accurate
+   - [ ] All parent-child relationships reflected
+   - [ ] Milestone alignment is correct
+
+7. **Common Fixes Required**
+   - Remove "[component]" prefixes from titles
+   - Convert literal "\n" to actual newlines
+   - Standardize on either "Story:" or "Feature:" (not both)
+   - Add missing parent epic references
+   - Complete missing sections in descriptions
+   - Add required labels
+   - Fix broken issue references
+   - Update project plan links
+
+8. **When Updating Existing Issues**
+   - [ ] Check for and remove literal "\n" characters
+   - [ ] Verify all template sections are present
+   - [ ] Update parent epic references
+   - [ ] Verify label completeness
+   - [ ] Check cross-references
+   - [ ] Update project plan if needed
+   - [ ] Review related issues for consistency
+
+## Issue Types and Usage
+
+1. **Epics**
+   - Use for major components or phases
+   - Should represent substantial work (weeks/months)
+   - Must include:
+     * Clear overview and purpose
+     * Success criteria
+     * Child stories/tasks
+     * Dependencies
+     * Timeline estimates
+
+2. **Stories**
+   - Use for features or significant changes
+   - Should be completable within days/weeks
+   - Must include:
+     * Parent epic reference
+     * Clear acceptance criteria
+     * Child tasks
+     * Technical requirements
+     * Testing requirements
+
+3. **Tasks**
+   - Use for specific implementation items
+   - Should be completable in hours/days
+   - Must include:
+     * Parent story reference
+     * Clear acceptance criteria
+     * Implementation details
+     * Testing requirements
+
+## Issue Creation Rules
+
+1. **Naming Conventions**
+   - Epics: `Epic: [Component Name]`
+   - Stories: `Story: [Feature Name]`
+   - Tasks: `Task: [Implementation Item]`
+   - No component prefixes (use labels instead)
+
+2. **Required Labels**
+   - Type: `type:epic`, `type:story`, `type:task`
+   - Priority: `priority:high`, `priority:medium`, `priority:low`
+   - Component: `component:database`, `component:scanner`, etc.
+   - Status: `status:ready`, `status:blocked`, etc.
+
+3. **Description Format**
+   - Use clear markdown formatting
+   - Include all required sections
+   - No literal "\n" characters
+   - Proper indentation and spacing
+
+## Issue Relationships
+
+1. **Hierarchy Rules**
+   - Stories must reference parent epic
+   - Tasks must reference parent story
+   - Use GitHub's linking syntax: `Part of #123`
+   - Maintain bidirectional references
+
+2. **Cross-References**
+   - Link related issues
+   - Document dependencies
+   - Reference blocking issues
+   - Update references when status changes
+
+3. **Status Management**
+   - Update status in both issue and project plan
+   - Document status changes
+   - Update dependent issues
+   - Maintain clear history
+
+## GitHub Workflow
+
+1. **Issue Creation**
+   - Check for duplicates
+   - Use appropriate template
+   - Set correct labels
+   - Link to project plan
+
+2. **Issue Updates**
+   - Update status regularly
+   - Document progress
+   - Update references
+   - Maintain history
+
+3. **Issue Closure**
+   - Verify completion criteria
+   - Update project plan
+   - Close dependent issues
+   - Document final state
+
+## Templates
+
+### Epic Template
+```markdown
+# [Epic Name]
+
+## Overview
+[High-level description]
+
+## Success Criteria
+- [ ] Criterion 1
+- [ ] Criterion 2
+
+## Stories
+### [Category 1]
+- #XX [Story 1]
+- #YY [Story 2]
+
+### [Category 2]
+- #ZZ [Story 3]
+- #WW [Story 4]
+
+## Dependencies
+- [Dependency 1] (#XX)
+- [Dependency 2] (#YY)
+
+## Timeline
+[Timeline estimate]
+```
+
+### Story Template
+```markdown
+# [Story Name]
+
+Part of Epic #XX
+
+## Overview
+[Detailed description]
+
+## Acceptance Criteria
+- [ ] Criterion 1
+- [ ] Criterion 2
+```
+
+### Task Template
+```markdown
+# [Task Name]
+
+Part of Story #XX
+
+## Overview
+[Implementation details]
+
+## Acceptance Criteria
+- [ ] Criterion 1
+- [ ] Criterion 2
+
+## Technical Approach
+[Technical implementation]
+
+## Testing Requirements
+[Testing needs]
+```
+
+## Best Practices
+
+1. **Issue Quality**
+   - Clear, specific titles
+   - Complete descriptions
+   - Proper formatting
+   - Current status
+
+2. **Relationship Management**
+   - Maintain hierarchy
+   - Update references
+   - Document changes
+   - Track dependencies
+
+3. **Status Updates**
+   - Regular progress updates
+   - Clear status changes
+   - Document blockers
+   - Update project plan
+
+## Verification Checklist
+
+Before creating/updating issues:
+- [ ] Proper issue type selected
+- [ ] Correct naming convention used
+- [ ] All required labels applied
+- [ ] Description properly formatted
+- [ ] Parent references included
+- [ ] Project plan updated
+- [ ] No duplicates found

@@ -1,0 +1,113 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: GitHub workflow and best practices for source control
+globs:
+  - "**/*.git*"
+  - "**/*.md"
+alwaysApply: true
+---
+
+# GitHub Best Practices
+
+## Commit Guidelines
+
+- Write clear, descriptive commit messages following conventional commits format:
+  - feat: for new features
+  - fix: for bug fixes
+  - docs: for documentation changes
+  - style: for formatting changes
+  - refactor: for code restructuring
+  - test: for adding tests
+  - chore: for maintenance tasks
+- Start commit messages with type and scope: "feat(core): add new feature"
+- Keep commits focused on a single change
+- Reference issue numbers in commit messages when applicable (e.g., "#123")
+- **REQUIRED**: Every commit must reference at least one GitHub issue that is also referenced in the project plan
+- **REQUIRED**: Reference issues with format `(#issue_number)` at the end of the commit message title line
+- Commit regularly - aim for small, focused commits rather than large changes
+- Commit at logical stopping points in your work
+- Commit at the end of each working session
+
+## Issue-Driven Development
+
+- Every development task must have a corresponding GitHub issue
+- Issues must be referenced in the project plan before implementation begins
+- Multiple related project plan tasks can be covered by a single GitHub issue
+- Project plan tasks should link to GitHub issues using the format: `([#123](mdc:https:/github.com/owner/repo/issues/123))`
+- When making a commit, always reference the issue number(s) you're addressing
+- Ensure the issue is updated with progress as you complete work
+- Close issues with a commit message when the work is complete
+
+## Git Workflow
+
+### Standard Workflow Steps
+1. Before making changes, run `git status` to ensure starting from a clean state
+2. Create or switch to appropriate branch if needed
+3. Check `git status` to identify all changed and untracked files
+4. Review your changes with `git diff`
+5. Stage changes in logical groups: `git add file1 file2`
+6. Review staged changes with `git diff --staged`
+7. Commit with descriptive message and issue reference: `git commit -m "feat(core): add feature X (#123)"`
+8. Verify successful commit with `git status`
+9. Push changes regularly: `git push origin branch-name`
+10. Verify successful push with `git status`
+
+### Verification Practices
+- Always run `git status` before and after staging files
+- Verify each staged file with `git diff --staged` before committing
+- After committing, check `git status` to ensure all intended changes were committed
+- After pushing, verify with `git status` that local and remote branches are in sync
+- Regularly check for untracked files that should be tracked
+
+## Branching Strategy
+
+- Keep `main` branch always in a deployable state
+- Create feature branches for new features: `feature/<n>`
+- Create bugfix branches for bug fixes: `bugfix/<n>`
+- Create documentation branches for doc changes: `docs/<n>`
+- Delete branches after merging
+
+## Pull Requests
+
+- Create meaningful PR descriptions with context and rationale
+- Reference related issues in PR description
+- Keep PRs reasonably sized for effective code review
+- Request reviews from appropriate team members
+- Address all review comments before merging
+- Use PR templates when available
+
+## GitHub-Specific Features
+
+- Use GitHub Issues for tracking work items
+- Leverage GitHub Projects for work organization
+- Configure GitHub Actions for CI/CD pipelines
+- Use GitHub Discussions for longer form conversations
+- Utilize GitHub wikis for documentation when appropriate
+
+## Repository Maintenance
+
+- Maintain a proper `.gitignore` file for your project type
+- Review and update `.gitignore` regularly as project evolves
+- Set up branch protection rules for important branches
+- Configure required status checks for critical branches
+- Regularly review and merge or close stale PRs
+- Archive or delete unused branches periodically
+
+## Best Practices for Push Frequency
+
+- Push at least once per day when actively working
+- Push after completing a logical unit of work
+- Push before stepping away from your computer for extended periods
+- Push before ending your work session
+- Never leave uncommitted or unpushed changes overnight
+
+## Handling Merge Conflicts
+
+- Pull latest changes regularly to minimize conflicts
+- Resolve conflicts as soon as they appear
+- Use visual merge tools for complex conflicts
+- Test thoroughly after resolving conflicts 

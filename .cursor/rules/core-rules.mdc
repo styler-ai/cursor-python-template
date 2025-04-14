@@ -1,0 +1,303 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: 
+globs: 
+alwaysApply: false
+---
+---
+description: Core project rules applicable to all projects
+globs:
+  - "**/*"
+---
+
+# Core Development Rules
+
+## General Code Principles
+
+- Write clean, readable, and maintainable code
+- Follow SOLID principles in all object-oriented code
+- Apply DRY (Don't Repeat Yourself) principle across the codebase
+- **Follow the KISS (Keep It Simple, Stupid) principle** - always prefer simple solutions over complex ones
+- Avoid clever tricks, over-engineering, and unnecessary complexity
+- Simple code means fewer bugs, easier maintenance, and better onboarding
+- Keep functions and methods small and focused on a single task
+- Use meaningful and descriptive names for variables, functions, and classes
+- Document code with clear comments and docstrings
+- Write self-documenting code whenever possible
+- Follow language-specific style guides and conventions
+
+## Gang of Four Design Patterns
+
+### Creational Patterns
+- **Factory Method**: Create objects without specifying exact class
+- **Abstract Factory**: Create families of related objects
+- **Builder**: Construct complex objects step by step
+- **Prototype**: Clone existing objects
+- **Singleton**: Ensure a class has only one instance
+
+### Structural Patterns
+- **Adapter**: Interface compatibility between classes
+- **Bridge**: Separate abstraction from implementation
+- **Composite**: Treat group of objects as a single object
+- **Decorator**: Add responsibilities to objects dynamically
+- **Facade**: Simplified interface to a subsystem
+- **Flyweight**: Share common state between objects
+- **Proxy**: Object representing another object
+
+### Behavioral Patterns
+- **Chain of Responsibility**: Pass request along a chain
+- **Command**: Encapsulate a request as an object
+- **Interpreter**: Define a grammar for instructions
+- **Iterator**: Access elements sequentially
+- **Mediator**: Define how objects interact
+- **Memento**: Capture and restore object state
+- **Observer**: Notify dependents of state changes
+- **State**: Alter object behavior when state changes
+- **Strategy**: Interchangeable algorithms
+- **Template Method**: Defer exact steps to subclass
+- **Visitor**: Define new operation without changing classes
+
+### When to Use Design Patterns
+- Consider Factory patterns for complex object creation
+- Use Observer for event notifications
+- Use Decorator for adding functionality dynamically
+- Use Command for encapsulating operations
+- Always document the pattern being used in class docstrings
+
+## Generic Architecture Guidelines
+
+- Follow a modular architecture with clear component boundaries
+- Maintain separation of concerns between components
+- Use dependency injection for component coupling
+- Implement interfaces for all major components
+- Follow the repository pattern for data access
+- Use factory patterns for object creation
+- Implement the observer pattern for event notifications
+
+## Error Handling
+
+- Use structured error handling with appropriate exception types
+- Log all exceptions with context information
+- Implement retry mechanisms for transient errors
+- Use custom exception types for domain-specific errors
+- Follow this pattern:
+  ```python
+  try:
+      # code
+  except Exception as e:
+      log_exception(e, "function_name")
+  ```
+
+## Logging Standards
+
+### Core Logging Principles
+
+- **Always Log**: Every significant operation should be logged
+- **Structured Logging**: Use structured log formats (JSON, key-value pairs)
+- **Log Levels**: Use appropriate log levels:
+  - DEBUG: Detailed information for debugging
+  - INFO: General operational information
+  - WARNING: Warning conditions that don't prevent operation
+  - ERROR: Error conditions that prevent normal operation
+  - CRITICAL: Critical conditions that require immediate attention
+- **Context**: Include relevant context in every log message
+- **Traceability**: Ensure logs can be traced through the system
+- **Performance**: Logging should not significantly impact performance
+
+### Logging Configuration
+
+```python
+import logging
+import logging.handlers
+
+# Configure root logger
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('app.log'),
+        logging.StreamHandler()
+    ]
+)
+
+# Create module-specific logger
+logger = logging.getLogger(__name__)
+```
+
+### Logging Best Practices
+
+- **Exception Logging**:
+  ```python
+  try:
+      # operation
+  except Exception as e:
+      logger.error(f"Operation failed: {str(e)}", exc_info=True)
+      logger.error("Stack trace:", exc_info=True)
+  ```
+
+- **Contextual Logging**:
+  ```python
+  logger.info("Processing request", extra={
+      'request_id': request_id,
+      'user_id': user_id,
+      'operation': 'process_request'
+  })
+  ```
+
+- **Performance Logging**:
+  ```python
+  start_time = time.time()
+  # operation
+  logger.info(f"Operation completed in {time.time() - start_time:.2f}s")
+  ```
+
+- **State Changes**:
+  ```python
+  logger.info(f"State changed from {old_state} to {new_state}")
+  ```
+
+### Logging Requirements
+
+1. **Test Logging**:
+   - Log test execution start/end
+   - Log test failures with full context
+   - Include test parameters in logs
+   - Log performance metrics
+   - Include stack traces for failures
+
+2. **Database Operations**:
+   - Log all database queries
+   - Log transaction boundaries
+   - Log connection pool status
+   - Log performance metrics
+   - Log error conditions
+
+3. **API Operations**:
+   - Log request/response pairs
+   - Log authentication attempts
+   - Log rate limiting events
+   - Log error responses
+   - Log performance metrics
+
+4. **Resource Management**:
+   - Log memory usage
+   - Log CPU utilization
+   - Log file system operations
+   - Log network operations
+   - Log resource cleanup
+
+### Logging Patterns
+
+1. **Operation Logging**:
+   ```python
+   logger.info(f"Starting {operation_name}")
+   try:
+       # operation
+       logger.info(f"Completed {operation_name}")
+   except Exception as e:
+       logger.error(f"Failed {operation_name}: {str(e)}", exc_info=True)
+   ```
+
+2. **Performance Logging**:
+   ```python
+   start_time = time.time()
+   try:
+       # operation
+       logger.info(f"Operation completed in {time.time() - start_time:.2f}s")
+   except Exception as e:
+       logger.error(f"Operation failed after {time.time() - start_time:.2f}s: {str(e)}")
+   ```
+
+3. **State Transition Logging**:
+   ```python
+   logger.info(f"State transition: {old_state} -> {new_state}")
+   ```
+
+4. **Resource Logging**:
+   ```python
+   logger.info(f"Resource usage: {resource_type}={usage_value}")
+   ```
+
+### Logging Guidelines for AI Agents
+
+- Always implement comprehensive logging in generated code
+- Include context in all log messages
+- Use appropriate log levels
+- Log all significant operations
+- Include performance metrics
+- Log state changes
+- Include stack traces for errors
+- Log resource usage
+- Ensure logs are human-readable
+- Follow structured logging patterns
+
+## MVC Architecture
+
+- View: UI rendering only, no business logic
+- Controller: Handle user actions, coordinate between model and view
+- Model: Business logic and data management
+
+## Controller Method Pattern
+
+```python
+def method_name(self):
+    # 1. Check preconditions
+    if self.running:
+        return "Operation already in progress", "**Status**: Running"
+    
+    # 2. Set status flags
+    self.running = True
+    
+    # 3. Execute core logic
+    self._run_async_task(self._execute_task)
+    
+    # 4. Return UI update information
+    return "Operation started...", "**Status**: Running"
+```
+
+## Asynchronous Operations
+
+- Use async/await for asynchronous operations when possible
+- Create separate thread target functions for long operations
+- Always provide status updates for long-running operations
+- Implement cancellation mechanisms for lengthy processes
+- Use thread-safe methods for shared resource access
+- Handle exceptions properly in asynchronous code
+- Use locks or semaphores to control access to shared resources
+- Consider using async libraries for complex operations
+
+## Database Guidelines
+
+### General Database Principles
+- Use connection pooling for database interactions
+- Implement proper transaction management
+- Create appropriate indexes for frequently queried fields
+- Use parameterized queries to prevent SQL injection
+- Keep database operations out of loops when possible
+- Implement regular maintenance operations
+- Ensure regular backups of data
+
+### Document Databases
+- Maintain consistent document schemas
+- Implement proper indexing for frequently queried fields
+- Use typed fields where possible
+- Validate documents before insertion
+
+## Version Control Practices
+
+- Write clear, descriptive commit messages
+- Start commit messages with verbs in imperative mood (Add, Fix, Update)
+- Keep commits focused on a single change
+- Reference issue numbers in commit messages when applicable
+- Follow a clear branching strategy:
+  - main: Always kept in a deployable state
+  - feature/<name>: For new features or enhancements
+  - bugfix/<name>: For bug fixes
+  - docs/<name>: For documentation changes
+- Create meaningful PR descriptions with context and rationale
+- Perform code reviews for all changes
+- Maintain a clean commit history 
