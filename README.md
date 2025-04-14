@@ -2,7 +2,11 @@
 
 ## Overview
 
-(Provide a brief overview of the project here. Explain it's a template for Python projects using Cursor, including standard structure and generic AI rules.)
+(Provide a brief overview of the project here. Explain it's a template for Python projects, including standard structure and generic AI rules.)
+
+**This template is specifically designed for development using the [Cursor](https://cursor.sh/) editor**, which integrates AI capabilities and utilizes the rules defined in the `.cursor/rules/` directory. While the code structure is standard Python, using Cursor is highly recommended to fully leverage the AI-assisted development workflow this template facilitates.
+
+This template is maintained by Shaun Tyler (styler-ai).
 
 ## Features
 
@@ -34,11 +38,14 @@
 
 ## Getting Started (For a Project Created from this Template)
 
+**(Note: This template is intended for use with the Cursor editor - see https://cursor.sh/)**
+
 ### Prerequisites
 
 * Python 3.8+
 * pip
-* (Any other system dependencies)
+* Git (for version control)
+* (Any other system dependencies, e.g., `make` if using the Makefile)
 
 ### Installation
 
