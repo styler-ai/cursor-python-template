@@ -29,6 +29,7 @@ dev = [
     "pytest",
     "pytest-cov",
     "flake8",
+    "flake8-bugbear",
     "black",
     "mypy",
     "isort",
@@ -58,4 +59,12 @@ minversion = "6.0"
 addopts = "-ra -q"
 testpaths = [
     "tests",
-] 
+]
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203"]
+
+# Optional: Add other ignores or selects as needed
+# ignore = W503, ...
+# select = E,W,F,C,N, ... 
