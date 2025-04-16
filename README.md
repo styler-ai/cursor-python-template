@@ -1,12 +1,14 @@
 # Project Name Placeholder
 
+[📖 **View the Online Documentation**](https://styler-ai.github.io/cursor-python-template/index.html)
+
 ## Documentation Template
 
-This project includes a Sphinx documentation template in the `/template-docs/` folder.
+This project includes a Sphinx documentation template in the `/template-sphinx-documentation/` folder.
 
-- If you want to use this template, **rename `/template-docs/` to `/docs/`**.
+- If you want to use this template, **rename `/template-sphinx-documentation/` to `/docs/`**.
 - `/docs/` is the standard location for Sphinx documentation and is compatible with GitHub Pages.
-- If you already have your own documentation, you can ignore or remove `/template-docs/`.
+- If you already have your own documentation, you can ignore or remove `/template-sphinx-documentation/`.
 
 For more information on Sphinx, see [sphinx-doc.org](https://www.sphinx-doc.org/).
 
@@ -101,22 +103,3 @@ pytest
 cd docs
 make html # On Windows, use .\make.bat html
 ```
-
-### Automatic RST Formatting
-
-The template includes automatic RST formatting for your documentation files:
-
-- Ensures consistent formatting of headings and subheadings
-- Fixes title overline/underline length issues
-- Standardizes section formatting
-- Runs automatically whenever you build documentation with `make html`
-
-This feature helps maintain professional-looking documentation without manual formatting. The formatting script is located at `docs/fix_rst_formatting.py` and is integrated into both the `make.bat` and `Makefile`.
-
-## Contributing to this Template
-
-See [CONTRIBUTING.md](./CONTRIBUTING.md).
-
-## License
-
-This template is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details. 
