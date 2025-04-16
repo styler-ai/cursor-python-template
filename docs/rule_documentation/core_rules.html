@@ -1,0 +1,254 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Core Rules &mdash; Cursor Python Template 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Python Rules" href="python_rules.html" />
+    <link rel="prev" title="Rule Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Cursor Python Template
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project_structure.html">Project Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/index.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customization.html">Customization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rules/index.html">Cursor Rules</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Rule Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Core Rules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#purpose">Purpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-principles">Key Principles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#detailed-contents">Detailed Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#general-code-principles">General Code Principles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#design-patterns">Design Patterns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#error-handling">Error Handling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#logging-standards">Logging Standards</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#architecture-guidelines">Architecture Guidelines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asynchronous-operations">Asynchronous Operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#version-control-practices">Version Control Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rationale">Rationale</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python_rules.html">Python Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing_rules.html">Testing Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation_rules.html">Documentation Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="github_rules.html">GitHub Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="github_issues_rules.html">GitHub Issues Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_plan_management_rules.html">Project Plan Management Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_structure_rules.html">Project Structure Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="powershell_rules.html">PowerShell Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context_detection_rules.html">Context Detection Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cursor_startup_rules.html">Cursor Startup Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code_review_rules.html">Code Review Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_rules.html">Security Rules</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cursor Python Template</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Rule Documentation</a></li>
+      <li class="breadcrumb-item active">Core Rules</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/rule_documentation/core_rules.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="core-rules">
+<h1>Core Rules<a class="headerlink" href="#core-rules" title="Link to this heading"></a></h1>
+<p>The Core Rules establish fundamental development principles applicable to all projects, regardless of technology stack.</p>
+<p>File: <cite>core-rules.mdc</cite></p>
+<section id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Link to this heading"></a></h2>
+<p>The core rules provide a set of foundational principles and patterns that guide overall code quality, architecture, and development practices. These rules establish a common baseline for all development work.</p>
+</section>
+<section id="key-principles">
+<h2>Key Principles<a class="headerlink" href="#key-principles" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Clean Code</strong>: Emphasizes readability, maintainability, and simplicity</p></li>
+<li><p><strong>SOLID Principles</strong>: Guidelines for creating maintainable object-oriented designs</p></li>
+<li><p><strong>Design Patterns</strong>: Implementation guidance for common design patterns</p></li>
+<li><p><strong>Error Handling</strong>: Standardized approaches to handling errors</p></li>
+<li><p><strong>Logging</strong>: Comprehensive logging practices and patterns</p></li>
+</ul>
+</section>
+<section id="detailed-contents">
+<h2>Detailed Contents<a class="headerlink" href="#detailed-contents" title="Link to this heading"></a></h2>
+<section id="general-code-principles">
+<h3>General Code Principles<a class="headerlink" href="#general-code-principles" title="Link to this heading"></a></h3>
+<p>The core rules establish universal coding principles including:</p>
+<ul class="simple">
+<li><p>KISS (Keep It Simple, Stupid) - favoring simplicity over complexity</p></li>
+<li><p>DRY (Don’t Repeat Yourself) - avoiding code duplication</p></li>
+<li><p>Clear naming conventions for variables, functions, and classes</p></li>
+<li><p>Code documentation standards</p></li>
+<li><p>Function/method size and focus guidelines</p></li>
+</ul>
+</section>
+<section id="design-patterns">
+<h3>Design Patterns<a class="headerlink" href="#design-patterns" title="Link to this heading"></a></h3>
+<p>Documentation and guidance for implementing Gang of Four design patterns:</p>
+<ul class="simple">
+<li><p><strong>Creational Patterns</strong>: Factory Method, Abstract Factory, Builder, Prototype, Singleton</p></li>
+<li><p><strong>Structural Patterns</strong>: Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy</p></li>
+<li><p><strong>Behavioral Patterns</strong>: Chain of Responsibility, Command, Interpreter, Iterator, Mediator, Memento, Observer, State, Strategy, Template Method, Visitor</p></li>
+</ul>
+<p>The rules include guidelines on when to use specific patterns and documentation requirements.</p>
+</section>
+<section id="error-handling">
+<h3>Error Handling<a class="headerlink" href="#error-handling" title="Link to this heading"></a></h3>
+<p>Standardized approaches for error handling:</p>
+<ul class="simple">
+<li><p>Using structured exception handling</p></li>
+<li><p>Exception logging requirements</p></li>
+<li><p>Retry mechanisms for transient errors</p></li>
+<li><p>Custom exception types for domain-specific errors</p></li>
+</ul>
+</section>
+<section id="logging-standards">
+<h3>Logging Standards<a class="headerlink" href="#logging-standards" title="Link to this heading"></a></h3>
+<p>Comprehensive logging practices including:</p>
+<ul class="simple">
+<li><p>Log levels and their appropriate usage</p></li>
+<li><p>Structured logging formats</p></li>
+<li><p>Context inclusion in log messages</p></li>
+<li><p>Exception logging patterns</p></li>
+<li><p>Performance logging patterns</p></li>
+<li><p>State transition logging</p></li>
+<li><p>Resource usage logging</p></li>
+</ul>
+</section>
+<section id="architecture-guidelines">
+<h3>Architecture Guidelines<a class="headerlink" href="#architecture-guidelines" title="Link to this heading"></a></h3>
+<p>High-level architectural principles including:</p>
+<ul class="simple">
+<li><p>Modular architecture with clear component boundaries</p></li>
+<li><p>Separation of concerns</p></li>
+<li><p>Dependency injection</p></li>
+<li><p>Interface-based design</p></li>
+<li><p>MVC architecture principles and implementation patterns</p></li>
+</ul>
+</section>
+<section id="asynchronous-operations">
+<h3>Asynchronous Operations<a class="headerlink" href="#asynchronous-operations" title="Link to this heading"></a></h3>
+<p>Guidelines for implementing asynchronous operations:</p>
+<ul class="simple">
+<li><p>Using async/await patterns</p></li>
+<li><p>Thread management and safety</p></li>
+<li><p>Status updates for long-running operations</p></li>
+<li><p>Exception handling in asynchronous code</p></li>
+<li><p>Cancellation mechanisms</p></li>
+</ul>
+</section>
+<section id="version-control-practices">
+<h3>Version Control Practices<a class="headerlink" href="#version-control-practices" title="Link to this heading"></a></h3>
+<p>Best practices for version control:</p>
+<ul class="simple">
+<li><p>Commit message formats and content</p></li>
+<li><p>Branching strategies</p></li>
+<li><p>Pull request guidelines</p></li>
+<li><p>Code review practices</p></li>
+</ul>
+</section>
+</section>
+<section id="rationale">
+<h2>Rationale<a class="headerlink" href="#rationale" title="Link to this heading"></a></h2>
+<p>The core rules serve several essential purposes:</p>
+<ol class="arabic simple">
+<li><p><strong>Quality Assurance</strong>: Establishing a baseline for code quality and architecture</p></li>
+<li><p><strong>Consistency</strong>: Ensuring a consistent approach across different parts of the project</p></li>
+<li><p><strong>Maintainability</strong>: Making code easier to maintain over time</p></li>
+<li><p><strong>Knowledge Sharing</strong>: Documenting best practices for team members</p></li>
+<li><p><strong>AI Assistance</strong>: Providing clear guidance to the Cursor AI for generating high-quality code</p></li>
+</ol>
+<p>By following these core rules, developers (both human and AI) can create code that is consistent, maintainable, and follows established best practices in software development.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Rule Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="python_rules.html" class="btn btn-neutral float-right" title="Python Rules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Template Authors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

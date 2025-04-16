@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Structure &mdash; Cursor Python Template 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Usage" href="usage/index.html" />
+    <link rel="prev" title="Overview" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Cursor Python Template
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Project Structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#directory-layout">Directory Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#key-components">Key Components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cursor-rules">.cursor/rules/</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src">src/</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tests">tests/</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docs">docs/</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scripts">scripts/</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-files">Configuration Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pyproject-toml">pyproject.toml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#requirements-txt">requirements.txt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gitignore">.gitignore</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#license">LICENSE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#contributing-md">CONTRIBUTING.md</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage/index.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customization.html">Customization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rules/index.html">Cursor Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rule_documentation/index.html">Rule Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Cursor Python Template</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Project Structure</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/project_structure.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="project-structure">
+<h1>Project Structure<a class="headerlink" href="#project-structure" title="Link to this heading"></a></h1>
+<section id="directory-layout">
+<h2>Directory Layout<a class="headerlink" href="#directory-layout" title="Link to this heading"></a></h2>
+<p>The template follows a standardized directory layout designed to promote good Python project organization:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cursor-python-template/
+├── .cursor/                    # Cursor editor configuration
+│   └── rules/                  # Cursor AI rules
+├── .github/                    # GitHub configuration (optional)
+│   └── workflows/              # GitHub Actions workflows (optional)
+├── docs/                       # Documentation
+│   ├── source/                 # Sphinx documentation source
+│   ├── conf.py                 # Sphinx configuration
+│   ├── index.md                # Documentation index
+│   ├── make.bat                # Windows build script
+│   └── Makefile                # Unix build script
+├── scripts/                    # Utility scripts
+├── src/                        # Source code
+│   └── project_name_placeholder/ # Main package directory (to be renamed)
+│       └── __init__.py         # Package initialization file
+├── tests/                      # Test files
+│   └── __init__.py             # Test package initialization
+├── .gitignore                  # Git ignore file
+├── CONTRIBUTING.md             # Contribution guidelines
+├── LICENSE                     # License file
+├── pyproject.toml              # Python project configuration
+├── README.md                   # Project README
+└── requirements.txt            # Dependencies
+</pre></div>
+</div>
+</section>
+<section id="key-components">
+<h2>Key Components<a class="headerlink" href="#key-components" title="Link to this heading"></a></h2>
+<section id="cursor-rules">
+<h3>.cursor/rules/<a class="headerlink" href="#cursor-rules" title="Link to this heading"></a></h3>
+<p>This directory contains rule files that guide Cursor’s AI in providing context-aware assistance:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">code-review-rules.mdc</span></code>: Guidelines for code review practices</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context-detection-rules.mdc</span></code>: Patterns for detecting and managing context</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">core-rules.mdc</span></code>: Fundamental development principles and patterns</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cursor-startup-rules.mdc</span></code>: Rules for Cursor AI’s initialization process</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">documentation-rules.mdc</span></code>: Documentation standards and requirements</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">github-issues-rules.mdc</span></code>: GitHub issue management guidelines</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">github-rules.mdc</span></code>: GitHub workflow and best practices</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">powershell-rules.mdc</span></code>: PowerShell coding standards</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">project-plan-management-rules.mdc</span></code>: Project plan management guidelines</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">project-structure-rules.mdc</span></code>: Rules for project organization</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">python-rules.mdc</span></code>: Python coding standards</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">testing-rules.mdc</span></code>: Testing requirements and best practices</p></li>
+</ul>
+</section>
+<section id="src">
+<h3>src/<a class="headerlink" href="#src" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">src/</span></code> directory contains the main package code:</p>
+<ul class="simple">
+<li><p>By default, it contains a placeholder directory <code class="docutils literal notranslate"><span class="pre">project_name_placeholder/</span></code> which should be renamed to match your actual project name.</p></li>
+<li><p>This follows the src layout approach, which offers several advantages including cleaner imports and more explicit installation requirements.</p></li>
+</ul>
+</section>
+<section id="tests">
+<h3>tests/<a class="headerlink" href="#tests" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">tests/</span></code> directory contains all test files:</p>
+<ul class="simple">
+<li><p>Test files should follow the pattern <code class="docutils literal notranslate"><span class="pre">test_*.py</span></code> or <code class="docutils literal notranslate"><span class="pre">*_test.py</span></code></p></li>
+<li><p>The test directory structure should mirror the package structure in <code class="docutils literal notranslate"><span class="pre">src/</span></code></p></li>
+<li><p>Tests are configured to run with pytest</p></li>
+</ul>
+</section>
+<section id="docs">
+<h3>docs/<a class="headerlink" href="#docs" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">docs/</span></code> directory contains project documentation:</p>
+<ul class="simple">
+<li><p>Uses Sphinx for generating documentation</p></li>
+<li><p>Includes a basic configuration in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code></p></li>
+<li><p>Contains an index file with a starting structure</p></li>
+<li><p>Includes build scripts for both Windows (<code class="docutils literal notranslate"><span class="pre">make.bat</span></code>) and Unix (<code class="docutils literal notranslate"><span class="pre">Makefile</span></code>)</p></li>
+</ul>
+</section>
+<section id="scripts">
+<h3>scripts/<a class="headerlink" href="#scripts" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">scripts/</span></code> directory is for utility scripts and tools:</p>
+<ul class="simple">
+<li><p>Setup scripts</p></li>
+<li><p>Development utilities</p></li>
+<li><p>Build scripts</p></li>
+<li><p>Any other helpful automation tools</p></li>
+</ul>
+</section>
+</section>
+<section id="configuration-files">
+<h2>Configuration Files<a class="headerlink" href="#configuration-files" title="Link to this heading"></a></h2>
+<section id="pyproject-toml">
+<h3>pyproject.toml<a class="headerlink" href="#pyproject-toml" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file defines the project’s metadata and build system requirements:</p>
+<ul class="simple">
+<li><p>Project name, version, description, and author details</p></li>
+<li><p>Dependencies and development dependencies</p></li>
+<li><p>Build system configuration</p></li>
+<li><p>Tool configurations (e.g., pytest, black, etc.)</p></li>
+</ul>
+</section>
+<section id="requirements-txt">
+<h3>requirements.txt<a class="headerlink" href="#requirements-txt" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file lists the project’s dependencies:</p>
+<ul class="simple">
+<li><p>Production dependencies</p></li>
+<li><p>May include version constraints</p></li>
+<li><p>Used for direct installation via pip</p></li>
+</ul>
+</section>
+<section id="gitignore">
+<h3>.gitignore<a class="headerlink" href="#gitignore" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file specifies which files should be ignored by Git:</p>
+<ul class="simple">
+<li><p>Python-specific patterns (<code class="docutils literal notranslate"><span class="pre">__pycache__</span></code>, <code class="docutils literal notranslate"><span class="pre">.pyc</span></code>, etc.)</p></li>
+<li><p>Environment-specific files (<code class="docutils literal notranslate"><span class="pre">venv/</span></code>, <code class="docutils literal notranslate"><span class="pre">.env</span></code>, etc.)</p></li>
+<li><p>Build artifacts (<code class="docutils literal notranslate"><span class="pre">dist/</span></code>, <code class="docutils literal notranslate"><span class="pre">build/</span></code>, etc.)</p></li>
+<li><p>Editor-specific files</p></li>
+<li><p>OS-specific files</p></li>
+</ul>
+</section>
+<section id="license">
+<h3>LICENSE<a class="headerlink" href="#license" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> file contains the project’s license, by default MIT License:</p>
+<ul class="simple">
+<li><p>Should be updated with the current year and project author’s name/organization</p></li>
+</ul>
+</section>
+<section id="contributing-md">
+<h3>CONTRIBUTING.md<a class="headerlink" href="#contributing-md" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">CONTRIBUTING.md</span></code> file provides guidelines for contributing to the project:</p>
+<ul class="simple">
+<li><p>How to set up a development environment</p></li>
+<li><p>Coding standards</p></li>
+<li><p>Pull request process</p></li>
+<li><p>Issue reporting guidelines</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="usage/index.html" class="btn btn-neutral float-right" title="Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Template Authors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

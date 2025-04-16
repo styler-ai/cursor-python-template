@@ -1,0 +1,269 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Rules &mdash; Cursor Python Template 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Testing Rules" href="testing_rules.html" />
+    <link rel="prev" title="Core Rules" href="core_rules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Cursor Python Template
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project_structure.html">Project Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/index.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customization.html">Customization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rules/index.html">Cursor Rules</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Rule Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="core_rules.html">Core Rules</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Python Rules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#purpose">Purpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-principles">Key Principles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#detailed-contents">Detailed Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#code-style">Code Style</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#import-organization">Import Organization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#documentation-standards">Documentation Standards</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#error-handling">Error Handling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#class-structure">Class Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asynchronous-code">Asynchronous Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project-specific-conventions">Project-Specific Conventions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rationale">Rationale</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="testing_rules.html">Testing Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation_rules.html">Documentation Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="github_rules.html">GitHub Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="github_issues_rules.html">GitHub Issues Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_plan_management_rules.html">Project Plan Management Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_structure_rules.html">Project Structure Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="powershell_rules.html">PowerShell Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context_detection_rules.html">Context Detection Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cursor_startup_rules.html">Cursor Startup Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code_review_rules.html">Code Review Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_rules.html">Security Rules</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cursor Python Template</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Rule Documentation</a></li>
+      <li class="breadcrumb-item active">Python Rules</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/rule_documentation/python_rules.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="python-rules">
+<h1>Python Rules<a class="headerlink" href="#python-rules" title="Link to this heading"></a></h1>
+<p>Python-specific coding standards and best practices for development.</p>
+<p>File: <cite>python-rules.mdc</cite></p>
+<section id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Link to this heading"></a></h2>
+<p>The Python Rules provide language-specific guidelines to ensure consistent, high-quality Python code throughout the project. These rules establish coding standards, documentation requirements, and design patterns that are specific to Python development.</p>
+</section>
+<section id="key-principles">
+<h2>Key Principles<a class="headerlink" href="#key-principles" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>PEP 8 Compliance</strong>: Following standard Python style guidelines</p></li>
+<li><p><strong>Proper Documentation</strong>: Using Google-style docstrings for all code</p></li>
+<li><p><strong>Type Hints</strong>: Leveraging Python’s type annotation system</p></li>
+<li><p><strong>Error Handling</strong>: Standardized approaches to exception management</p></li>
+<li><p><strong>Package Structure</strong>: Consistent organization of Python modules</p></li>
+</ul>
+</section>
+<section id="detailed-contents">
+<h2>Detailed Contents<a class="headerlink" href="#detailed-contents" title="Link to this heading"></a></h2>
+<section id="code-style">
+<h3>Code Style<a class="headerlink" href="#code-style" title="Link to this heading"></a></h3>
+<p>The Python rules establish coding style requirements:</p>
+<ul class="simple">
+<li><p>4 spaces for indentation (no tabs)</p></li>
+<li><p>88 character line length (Black formatter compatible)</p></li>
+<li><p>snake_case for functions, methods, and variables</p></li>
+<li><p>PascalCase for class names</p></li>
+<li><p>UPPERCASE for constants</p></li>
+<li><p>Docstrings for all public functions, classes, and methods</p></li>
+</ul>
+</section>
+<section id="import-organization">
+<h3>Import Organization<a class="headerlink" href="#import-organization" title="Link to this heading"></a></h3>
+<p>Guidelines for organizing imports:</p>
+<ul class="simple">
+<li><p>Standard library imports first</p></li>
+<li><p>Third-party imports second</p></li>
+<li><p>Local application imports third</p></li>
+<li><p>Blank lines between import groups</p></li>
+<li><p>Absolute imports preferred over relative imports</p></li>
+<li><p>Specific imports (from x import y) when only a few items are needed</p></li>
+</ul>
+</section>
+<section id="documentation-standards">
+<h3>Documentation Standards<a class="headerlink" href="#documentation-standards" title="Link to this heading"></a></h3>
+<p>Requirements for code documentation:</p>
+<ul class="simple">
+<li><p>Google-style docstrings for all functions, classes, and methods</p></li>
+<li><p>Type hints for function parameters and return values</p></li>
+<li><p>Examples for complex functions</p></li>
+<li><p>Clear descriptions of parameters and return values</p></li>
+<li><p>Documentation of exceptions raised</p></li>
+<li><p>Module-level docstrings explaining purpose and contents</p></li>
+</ul>
+</section>
+<section id="error-handling">
+<h3>Error Handling<a class="headerlink" href="#error-handling" title="Link to this heading"></a></h3>
+<p>Standardized approaches for error handling:</p>
+<ul class="simple">
+<li><p>Using specific exception types (no bare except:)</p></li>
+<li><p>Creating custom exception classes for domain-specific errors</p></li>
+<li><p>Logging exceptions with context information</p></li>
+<li><p>Using context managers for resource cleanup</p></li>
+</ul>
+</section>
+<section id="class-structure">
+<h3>Class Structure<a class="headerlink" href="#class-structure" title="Link to this heading"></a></h3>
+<p>Guidelines for organizing Python classes:</p>
+<ul class="simple">
+<li><p>Specific order for class methods (class methods, static methods, init, etc.)</p></li>
+<li><p>Proper use of dunder methods</p></li>
+<li><p>Preference for composition over inheritance</p></li>
+<li><p>Use of abstract base classes for shared interfaces</p></li>
+<li><p>Property usage for attribute access control</p></li>
+</ul>
+</section>
+<section id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Link to this heading"></a></h3>
+<p>Requirements for Python testing:</p>
+<ul class="simple">
+<li><p>Unit tests for all public functions and methods</p></li>
+<li><p>pytest as the testing framework</p></li>
+<li><p>Test organization mirroring package structure</p></li>
+<li><p>Use of fixtures for test setup</p></li>
+<li><p>Mocking external dependencies</p></li>
+<li><p>High test coverage targets</p></li>
+</ul>
+</section>
+<section id="asynchronous-code">
+<h3>Asynchronous Code<a class="headerlink" href="#asynchronous-code" title="Link to this heading"></a></h3>
+<p>Guidelines for async programming:</p>
+<ul class="simple">
+<li><p>Preference for async/await over callbacks</p></li>
+<li><p>asyncio usage for asynchronous operations</p></li>
+<li><p>Task management best practices</p></li>
+<li><p>Proper exception handling in async code</p></li>
+</ul>
+</section>
+<section id="project-specific-conventions">
+<h3>Project-Specific Conventions<a class="headerlink" href="#project-specific-conventions" title="Link to this heading"></a></h3>
+<p>Project-specific Python patterns:</p>
+<ul class="simple">
+<li><p>Naming conventions for different component types</p></li>
+<li><p>Dependency injection patterns</p></li>
+<li><p>Configuration management</p></li>
+<li><p>Database access patterns</p></li>
+<li><p>Logging implementation</p></li>
+</ul>
+</section>
+</section>
+<section id="rationale">
+<h2>Rationale<a class="headerlink" href="#rationale" title="Link to this heading"></a></h2>
+<p>The Python rules serve several essential purposes:</p>
+<ol class="arabic simple">
+<li><p><strong>Consistency</strong>: Ensuring a consistent coding style and approach</p></li>
+<li><p><strong>Quality</strong>: Establishing high standards for Python code</p></li>
+<li><p><strong>Maintainability</strong>: Making code easier to understand and modify</p></li>
+<li><p><strong>Efficiency</strong>: Promoting patterns that work well with Python’s strengths</p></li>
+<li><p><strong>Compatibility</strong>: Ensuring code works across different Python environments</p></li>
+</ol>
+<p>By following these Python-specific rules, developers can write code that leverages Python’s strengths while avoiding common pitfalls of the language.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="core_rules.html" class="btn btn-neutral float-left" title="Core Rules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="testing_rules.html" class="btn btn-neutral float-right" title="Testing Rules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Template Authors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

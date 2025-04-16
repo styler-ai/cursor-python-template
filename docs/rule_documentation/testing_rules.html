@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testing Rules &mdash; Cursor Python Template 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Documentation Rules" href="documentation_rules.html" />
+    <link rel="prev" title="Python Rules" href="python_rules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Cursor Python Template
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project_structure.html">Project Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/index.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customization.html">Customization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rules/index.html">Cursor Rules</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Rule Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="core_rules.html">Core Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_rules.html">Python Rules</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Testing Rules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#purpose">Purpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-principles">Key Principles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#detailed-contents">Detailed Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#test-organization">Test Organization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unit-testing">Unit Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#smoke-testing">Smoke Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#integration-testing">Integration Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#end-to-end-testing">End-to-End Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#test-environment">Test Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#best-practices">Best Practices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ai-optimized-testing">AI-Optimized Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rationale">Rationale</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="documentation_rules.html">Documentation Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="github_rules.html">GitHub Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="github_issues_rules.html">GitHub Issues Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_plan_management_rules.html">Project Plan Management Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_structure_rules.html">Project Structure Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="powershell_rules.html">PowerShell Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context_detection_rules.html">Context Detection Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cursor_startup_rules.html">Cursor Startup Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code_review_rules.html">Code Review Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_rules.html">Security Rules</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cursor Python Template</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Rule Documentation</a></li>
+      <li class="breadcrumb-item active">Testing Rules</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/rule_documentation/testing_rules.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="testing-rules">
+<h1>Testing Rules<a class="headerlink" href="#testing-rules" title="Link to this heading"></a></h1>
+<p>Comprehensive standards for testing all aspects of the project.</p>
+<p>File: <cite>testing-rules.mdc</cite></p>
+<section id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Link to this heading"></a></h2>
+<p>The Testing Rules establish comprehensive requirements and best practices for testing across the project. These rules ensure adequate test coverage, consistent test organization, and proper validation of all code components.</p>
+</section>
+<section id="key-principles">
+<h2>Key Principles<a class="headerlink" href="#key-principles" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Test Pyramid</strong>: Following the test pyramid with many unit tests, fewer integration tests, and even fewer E2E tests</p></li>
+<li><p><strong>Tests First</strong>: Writing tests before or alongside implementation</p></li>
+<li><p><strong>High Coverage</strong>: Aiming for at least 80% code coverage</p></li>
+<li><p><strong>Test Independence</strong>: Ensuring tests can run in isolation</p></li>
+<li><p><strong>Fast Execution</strong>: Optimizing tests to run quickly</p></li>
+<li><p><strong>Automation</strong>: Fully automating all testing</p></li>
+</ul>
+</section>
+<section id="detailed-contents">
+<h2>Detailed Contents<a class="headerlink" href="#detailed-contents" title="Link to this heading"></a></h2>
+<section id="test-organization">
+<h3>Test Organization<a class="headerlink" href="#test-organization" title="Link to this heading"></a></h3>
+<p>Guidelines for organizing tests:</p>
+<ul class="simple">
+<li><p>Tests stored in the dedicated <cite>tests/</cite> directory</p></li>
+<li><p>Mirror of the package structure in test directory</p></li>
+<li><p>Test files named with <cite>test_*.py</cite> or <cite>*_test.py</cite> pattern</p></li>
+<li><p>Grouping by functionality/component</p></li>
+<li><p>Separate directories for different test types (unit, integration, etc.)</p></li>
+</ul>
+</section>
+<section id="unit-testing">
+<h3>Unit Testing<a class="headerlink" href="#unit-testing" title="Link to this heading"></a></h3>
+<p>Requirements for unit testing:</p>
+<ul class="simple">
+<li><p>Unit tests for all functions, classes, and methods</p></li>
+<li><p>Creation during or before implementation</p></li>
+<li><p>Isolation of test targets</p></li>
+<li><p>Following the AAA pattern (Arrange, Act, Assert)</p></li>
+<li><p>Appropriate mocking of dependencies</p></li>
+<li><p>Testing of both happy path and error cases</p></li>
+<li><p>Fast execution time</p></li>
+<li><p>Avoidance of external dependencies</p></li>
+<li><p>Coverage of error handling and edge cases</p></li>
+<li><p>Use of pytest fixtures for setup and teardown</p></li>
+</ul>
+</section>
+<section id="smoke-testing">
+<h3>Smoke Testing<a class="headerlink" href="#smoke-testing" title="Link to this heading"></a></h3>
+<p>Guidelines for smoke testing:</p>
+<ul class="simple">
+<li><p>Smoke tests for all core functionality</p></li>
+<li><p>Automatic execution for every code change</p></li>
+<li><p>Comprehensive but quick test suite</p></li>
+<li><p>Verification of critical user paths</p></li>
+<li><p>Testing of key API endpoints</p></li>
+<li><p>Testing of most common user workflows</p></li>
+<li><p>Simple and reliable test structure</p></li>
+<li><p>Early execution in the CI pipeline</p></li>
+</ul>
+</section>
+<section id="integration-testing">
+<h3>Integration Testing<a class="headerlink" href="#integration-testing" title="Link to this heading"></a></h3>
+<p>Standards for integration testing:</p>
+<ul class="simple">
+<li><p>Testing of interactions between components</p></li>
+<li><p>Use of real dependencies where practical</p></li>
+<li><p>Test databases or services for testing</p></li>
+<li><p>Verification of typical user workflows</p></li>
+<li><p>System behavior testing</p></li>
+<li><p>Cleanup to prevent test pollution</p></li>
+<li><p>Database interaction testing</p></li>
+<li><p>API boundary testing</p></li>
+</ul>
+</section>
+<section id="end-to-end-testing">
+<h3>End-to-End Testing<a class="headerlink" href="#end-to-end-testing" title="Link to this heading"></a></h3>
+<p>Guidelines for E2E testing:</p>
+<ul class="simple">
+<li><p>Complete user workflow testing</p></li>
+<li><p>Use of real infrastructure</p></li>
+<li><p>UI-based testing where possible</p></li>
+<li><p>Realistic user scenarios</p></li>
+<li><p>Data flow verification</p></li>
+<li><p>Performance testing under realistic conditions</p></li>
+<li><p>Complete environment setup and teardown</p></li>
+<li><p>Documentation of prerequisites</p></li>
+</ul>
+</section>
+<section id="test-environment">
+<h3>Test Environment<a class="headerlink" href="#test-environment" title="Link to this heading"></a></h3>
+<p>Requirements for test environments:</p>
+<ul class="simple">
+<li><p>Consistent configuration</p></li>
+<li><p>Reproducible environments</p></li>
+<li><p>Isolation from production data</p></li>
+<li><p>Database resetting between test runs</p></li>
+<li><p>Fixtures for environment setup</p></li>
+<li><p>Documentation of requirements</p></li>
+<li><p>Test-specific configuration</p></li>
+</ul>
+</section>
+<section id="best-practices">
+<h3>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading"></a></h3>
+<p>General testing best practices:</p>
+<ul class="simple">
+<li><p>Test independence</p></li>
+<li><p>Clear, descriptive test names</p></li>
+<li><p>Deterministic test design</p></li>
+<li><p>Avoidance of random data (except in specific cases)</p></li>
+<li><p>Readable and maintainable tests</p></li>
+<li><p>Behavior-based testing (not implementation details)</p></li>
+<li><p>Requirement validation</p></li>
+<li><p>Documentation of complex test logic</p></li>
+</ul>
+</section>
+<section id="ai-optimized-testing">
+<h3>AI-Optimized Testing<a class="headerlink" href="#ai-optimized-testing" title="Link to this heading"></a></h3>
+<p>Testing patterns optimized for AI:</p>
+<ul class="simple">
+<li><p>AI-understandable test design</p></li>
+<li><p>Clear test intent documentation</p></li>
+<li><p>Descriptive function names</p></li>
+<li><p>Consistent structure for AI analysis</p></li>
+<li><p>Explicit edge case documentation</p></li>
+<li><p>Test metadata for AI</p></li>
+<li><p>Clear helper function documentation</p></li>
+<li><p>Typed interfaces for test fixtures and mocks</p></li>
+<li><p>Comprehensive docstrings in test utilities</p></li>
+<li><p>Recognizable test patterns for AI</p></li>
+</ul>
+</section>
+</section>
+<section id="rationale">
+<h2>Rationale<a class="headerlink" href="#rationale" title="Link to this heading"></a></h2>
+<p>The testing rules serve several essential purposes:</p>
+<ol class="arabic simple">
+<li><p><strong>Quality Assurance</strong>: Ensuring code functions as expected</p></li>
+<li><p><strong>Regression Prevention</strong>: Catching issues early before they impact users</p></li>
+<li><p><strong>Documentation</strong>: Tests serve as executable documentation</p></li>
+<li><p><strong>Design Improvement</strong>: Tests often lead to better code design</p></li>
+<li><p><strong>Confidence</strong>: Providing confidence for refactoring and enhancement</p></li>
+</ol>
+<p>By following these testing rules, developers can create robust, reliable code with automated validation of its correctness.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="python_rules.html" class="btn btn-neutral float-left" title="Python Rules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="documentation_rules.html" class="btn btn-neutral float-right" title="Documentation Rules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Template Authors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

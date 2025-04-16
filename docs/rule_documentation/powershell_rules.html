@@ -1,0 +1,224 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PowerShell Rules &mdash; Cursor Python Template 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Context Detection Rules" href="context_detection_rules.html" />
+    <link rel="prev" title="Project Structure Rules" href="project_structure_rules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Cursor Python Template
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project_structure.html">Project Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/index.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customization.html">Customization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rules/index.html">Cursor Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Rule Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cursor Python Template</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Rule Documentation</a></li>
+      <li class="breadcrumb-item active">PowerShell Rules</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/rule_documentation/powershell_rules.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="powershell-rules">
+<h1>PowerShell Rules<a class="headerlink" href="#powershell-rules" title="Link to this heading"></a></h1>
+<p>Standards and best practices for PowerShell scripting.</p>
+<p>File: <cite>powershell-rules.mdc</cite></p>
+<section id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Link to this heading"></a></h2>
+<p>The PowerShell Rules establish coding standards and best practices for PowerShell scripting within the project. These rules ensure scripts are efficient, maintainable, and follow consistent patterns.</p>
+</section>
+<section id="key-principles">
+<h2>Key Principles<a class="headerlink" href="#key-principles" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Appropriate Command Selection</strong>: Choosing the right command types for each task</p></li>
+<li><p><strong>Object-Oriented Approach</strong>: Leveraging PowerShell’s object-oriented nature</p></li>
+<li><p><strong>Consistent Naming</strong>: Following standard naming conventions</p></li>
+<li><p><strong>Proper Error Handling</strong>: Implementing robust error management</p></li>
+<li><p><strong>Performance Optimization</strong>: Writing efficient PowerShell code</p></li>
+</ul>
+</section>
+<section id="detailed-contents">
+<h2>Detailed Contents<a class="headerlink" href="#detailed-contents" title="Link to this heading"></a></h2>
+<section id="core-powershell-principles">
+<h3>Core PowerShell Principles<a class="headerlink" href="#core-powershell-principles" title="Link to this heading"></a></h3>
+<p>Fundamental principles for PowerShell scripting:</p>
+<ul class="simple">
+<li><p>Using PowerShell’s object-oriented capabilities rather than text processing</p></li>
+<li><p>Leveraging approved PowerShell verbs for function naming</p></li>
+<li><p>Taking advantage of the pipeline for chaining operations</p></li>
+<li><p>Using parameter validation attributes</p></li>
+<li><p>Preferring structured data over plain text</p></li>
+</ul>
+</section>
+<section id="command-selection-guidelines">
+<h3>Command Selection Guidelines<a class="headerlink" href="#command-selection-guidelines" title="Link to this heading"></a></h3>
+<p>Standards for choosing appropriate commands:</p>
+<ul class="simple">
+<li><p>Selecting commands based on task requirements</p></li>
+<li><p>Using PowerShell cmdlets for rich object output</p></li>
+<li><p>Appropriate use of external commands when necessary</p></li>
+<li><p>Proper use of PowerShell aliases</p></li>
+<li><p>Balancing functionality, performance, and readability</p></li>
+</ul>
+</section>
+<section id="naming-conventions">
+<h3>Naming Conventions<a class="headerlink" href="#naming-conventions" title="Link to this heading"></a></h3>
+<p>Consistent naming standards:</p>
+<ul class="simple">
+<li><p>PascalCase for function names (Get-ContextData)</p></li>
+<li><p>PascalCase for parameter names ($ContextName)</p></li>
+<li><p>camelCase for variable names ($contextData)</p></li>
+<li><p>Descriptive, meaningful names for all identifiers</p></li>
+</ul>
+</section>
+<section id="script-structure">
+<h3>Script Structure<a class="headerlink" href="#script-structure" title="Link to this heading"></a></h3>
+<p>Guidelines for organizing script contents:</p>
+<ul class="simple">
+<li><p>Beginning scripts with comment-based help</p></li>
+<li><p>Following help block with required modules</p></li>
+<li><p>Proper parameter declarations</p></li>
+<li><p>Using regions to organize code sections</p></li>
+</ul>
+</section>
+<section id="error-handling">
+<h3>Error Handling<a class="headerlink" href="#error-handling" title="Link to this heading"></a></h3>
+<p>Standards for robust error management:</p>
+<ul class="simple">
+<li><p>Using try/catch blocks for error handling</p></li>
+<li><p>Setting appropriate $ErrorActionPreference</p></li>
+<li><p>Using -ErrorAction parameter for critical cmdlets</p></li>
+<li><p>Proper error reporting with Write-Error</p></li>
+<li><p>Meaningful error messages with context</p></li>
+</ul>
+</section>
+<section id="performance-considerations">
+<h3>Performance Considerations<a class="headerlink" href="#performance-considerations" title="Link to this heading"></a></h3>
+<p>Guidelines for optimizing PowerShell performance:</p>
+<ul class="simple">
+<li><p>Using appropriate collection types for growing collections</p></li>
+<li><p>Optimizing Where-Object usage</p></li>
+<li><p>Using hashtables for lookups</p></li>
+<li><p>Minimizing ForEach-Object for large collections</p></li>
+<li><p>Limiting results when appropriate</p></li>
+</ul>
+</section>
+<section id="security-practices">
+<h3>Security Practices<a class="headerlink" href="#security-practices" title="Link to this heading"></a></h3>
+<p>Standards for secure PowerShell scripting:</p>
+<ul class="simple">
+<li><p>Never including credentials in scripts</p></li>
+<li><p>Using secure strings for sensitive information</p></li>
+<li><p>Signing scripts for production deployments</p></li>
+<li><p>Setting appropriate execution policies</p></li>
+<li><p>Validating user input</p></li>
+<li><p>Following least-privilege principle</p></li>
+</ul>
+</section>
+</section>
+<section id="rationale">
+<h2>Rationale<a class="headerlink" href="#rationale" title="Link to this heading"></a></h2>
+<p>The PowerShell rules serve several essential purposes:</p>
+<ol class="arabic simple">
+<li><p><strong>Consistency</strong>: Ensuring consistent coding style across PowerShell scripts</p></li>
+<li><p><strong>Maintainability</strong>: Making scripts easier to understand and maintain</p></li>
+<li><p><strong>Performance</strong>: Optimizing script execution and resource usage</p></li>
+<li><p><strong>Security</strong>: Implementing secure scripting practices</p></li>
+<li><p><strong>Reliability</strong>: Creating robust scripts with proper error handling</p></li>
+</ol>
+<p>By following these PowerShell rules, developers can create efficient, maintainable, and secure PowerShell scripts that follow best practices.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="project_structure_rules.html" class="btn btn-neutral float-left" title="Project Structure Rules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="context_detection_rules.html" class="btn btn-neutral float-right" title="Context Detection Rules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Template Authors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
