@@ -1,0 +1,258 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cursor Startup Rules &mdash; Cursor Python Template 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Code Review Rules" href="code_review_rules.html" />
+    <link rel="prev" title="Context Detection Rules" href="context_detection_rules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Cursor Python Template
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project_structure.html">Project Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/index.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customization.html">Customization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rules/index.html">Cursor Rules</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Rule Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="core_rules.html">Core Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_rules.html">Python Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing_rules.html">Testing Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation_rules.html">Documentation Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="github_rules.html">GitHub Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="github_issues_rules.html">GitHub Issues Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_plan_management_rules.html">Project Plan Management Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_structure_rules.html">Project Structure Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="powershell_rules.html">PowerShell Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context_detection_rules.html">Context Detection Rules</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Cursor Startup Rules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#purpose">Purpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-principles">Key Principles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#detailed-contents">Detailed Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#required-startup-sequence">Required Startup Sequence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verification-requirements">Verification Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#response-format-rules">Response Format Rules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#re-run-triggers">Re-run Triggers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ai-assistant-requirements">AI Assistant Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#error-handling-rules">Error Handling Rules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#documentation-requirements">Documentation Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rationale">Rationale</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="code_review_rules.html">Code Review Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_rules.html">Security Rules</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cursor Python Template</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Rule Documentation</a></li>
+      <li class="breadcrumb-item active">Cursor Startup Rules</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/rule_documentation/cursor_startup_rules.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cursor-startup-rules">
+<h1>Cursor Startup Rules<a class="headerlink" href="#cursor-startup-rules" title="Link to this heading"></a></h1>
+<p>Rules for Cursor AI startup and initialization process.</p>
+<p>File: <cite>cursor-startup-rules.mdc</cite></p>
+<section id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Link to this heading"></a></h2>
+<p>The Cursor Startup Rules establish a standardized process for the Cursor AI’s initialization when beginning work on a project. These rules ensure the AI thoroughly understands the project before assisting users, leading to more effective assistance.</p>
+</section>
+<section id="key-principles">
+<h2>Key Principles<a class="headerlink" href="#key-principles" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Thorough Preparation</strong>: Comprehensive review of project files and rules</p></li>
+<li><p><strong>Systematic Analysis</strong>: Methodical examination of project structure and components</p></li>
+<li><p><strong>Verification Requirements</strong>: Specific checkpoints before proceeding with assistance</p></li>
+<li><p><strong>Structured Communication</strong>: Clear format for presenting understanding</p></li>
+<li><p><strong>Active Learning</strong>: Initiative in seeking missing information</p></li>
+</ul>
+</section>
+<section id="detailed-contents">
+<h2>Detailed Contents<a class="headerlink" href="#detailed-contents" title="Link to this heading"></a></h2>
+<section id="required-startup-sequence">
+<h3>Required Startup Sequence<a class="headerlink" href="#required-startup-sequence" title="Link to this heading"></a></h3>
+<p>Mandatory steps for initial project review:</p>
+<ul class="simple">
+<li><p>Rules review process for understanding project standards</p></li>
+<li><p>Project analysis to examine files and structure</p></li>
+<li><p>Project plan review to understand goals and status</p></li>
+<li><p>Verification of understanding before proceeding</p></li>
+</ul>
+</section>
+<section id="verification-requirements">
+<h3>Verification Requirements<a class="headerlink" href="#verification-requirements" title="Link to this heading"></a></h3>
+<p>Checkpoints to ensure proper understanding:</p>
+<ul class="simple">
+<li><p>Project plan verification</p></li>
+<li><p>Core component relationship validation</p></li>
+<li><p>Test suite comprehension</p></li>
+<li><p>Documentation organization understanding</p></li>
+<li><p>Script utilities awareness</p></li>
+<li><p>Project phase identification</p></li>
+<li><p>Development guideline internalization</p></li>
+</ul>
+</section>
+<section id="response-format-rules">
+<h3>Response Format Rules<a class="headerlink" href="#response-format-rules" title="Link to this heading"></a></h3>
+<p>Standardized format for communicating understanding:</p>
+<ul class="simple">
+<li><p>Project status section with phase, progress, and issues</p></li>
+<li><p>Core components section with relationships and status</p></li>
+<li><p>Development context section with tools and requirements</p></li>
+</ul>
+</section>
+<section id="re-run-triggers">
+<h3>Re-run Triggers<a class="headerlink" href="#re-run-triggers" title="Link to this heading"></a></h3>
+<p>Conditions requiring re-initialization:</p>
+<ul class="simple">
+<li><p>Branch switching</p></li>
+<li><p>Major project updates</p></li>
+<li><p>Outdated context</p></li>
+<li><p>Uncertain project state</p></li>
+<li><p>Significant code changes</p></li>
+<li><p>Development focus changes</p></li>
+<li><p>Environment changes</p></li>
+<li><p>Unexpected behavior</p></li>
+</ul>
+</section>
+<section id="ai-assistant-requirements">
+<h3>AI Assistant Requirements<a class="headerlink" href="#ai-assistant-requirements" title="Link to this heading"></a></h3>
+<p>Behavioral standards for the AI:</p>
+<ul class="simple">
+<li><p>Active learning approach to unclear areas</p></li>
+<li><p>Context maintenance throughout session</p></li>
+<li><p>Efficient operation focused on relevant components</p></li>
+<li><p>Clear communication of understanding</p></li>
+<li><p>Error reporting and resolution</p></li>
+<li><p>Documentation of knowledge gaps</p></li>
+</ul>
+</section>
+<section id="error-handling-rules">
+<h3>Error Handling Rules<a class="headerlink" href="#error-handling-rules" title="Link to this heading"></a></h3>
+<p>Guidelines for managing errors during startup:</p>
+<ul class="simple">
+<li><p>File access error reporting and resolution</p></li>
+<li><p>Understanding gap identification and clarification</p></li>
+<li><p>Rule conflict resolution process</p></li>
+<li><p>Missing information documentation</p></li>
+<li><p>Context correction process</p></li>
+</ul>
+</section>
+<section id="documentation-requirements">
+<h3>Documentation Requirements<a class="headerlink" href="#documentation-requirements" title="Link to this heading"></a></h3>
+<p>Standards for recording knowledge:</p>
+<ul class="simple">
+<li><p>Knowledge gap documentation</p></li>
+<li><p>Understanding updates and corrections</p></li>
+<li><p>Session tracking for continuity</p></li>
+<li><p>Decision documentation</p></li>
+<li><p>History maintenance</p></li>
+</ul>
+</section>
+</section>
+<section id="rationale">
+<h2>Rationale<a class="headerlink" href="#rationale" title="Link to this heading"></a></h2>
+<p>The cursor startup rules serve several essential purposes:</p>
+<ol class="arabic simple">
+<li><p><strong>Comprehensive Understanding</strong>: Ensuring the AI understands the project before assisting</p></li>
+<li><p><strong>Consistency</strong>: Providing a standardized initialization process</p></li>
+<li><p><strong>Quality Assistance</strong>: Enabling more accurate and relevant assistance</p></li>
+<li><p><strong>Efficiency</strong>: Identifying key information quickly to provide better support</p></li>
+<li><p><strong>Transparency</strong>: Clearly communicating the AI’s understanding to users</p></li>
+</ol>
+<p>By following these cursor startup rules, the AI can provide more effective assistance that’s properly informed by project context and requirements.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="context_detection_rules.html" class="btn btn-neutral float-left" title="Context Detection Rules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="code_review_rules.html" class="btn btn-neutral float-right" title="Code Review Rules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Template Authors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
