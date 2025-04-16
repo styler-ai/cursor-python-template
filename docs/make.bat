@@ -19,8 +19,16 @@ if "%1" == "help" (
 
 if "%1" == "cleanbuild" (
     if exist %BUILDDIR% ( rmdir /s /q %BUILDDIR% )
+    echo Running RST formatting fix script...
+    py -3 fix_rst_formatting.py
     %SPHINXBUILD% -M html %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
     goto end
+)
+
+REM Run the RST formatting fix script before building HTML
+if "%1" == "html" (
+    echo Running RST formatting fix script...
+    py -3 fix_rst_formatting.py
 )
 
 %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%

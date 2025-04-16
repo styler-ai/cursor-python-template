@@ -15,6 +15,7 @@ This template is maintained by Shaun Tyler (styler-ai).
 * Standard configuration files (`.gitignore`, `pyproject.toml`, `requirements.txt`).
 * Basic `pytest` setup in `tests/`.
 * Placeholder documentation structure in `docs/`.
+* Automatic RST formatting for documentation files.
 * Placeholder PowerShell setup script in `scripts/`.
 * MIT License.
 * Contribution guidelines.
@@ -84,12 +85,23 @@ This template is maintained by Shaun Tyler (styler-ai).
 pytest
 ```
 
-## Building Documentation (if using Sphinx)
+## Building Documentation
 
 ```bash
 cd docs
-make html # Or appropriate command if not using Sphinx/Make
+make html # On Windows, use .\make.bat html
 ```
+
+### Automatic RST Formatting
+
+The template includes automatic RST formatting for your documentation files:
+
+- Ensures consistent formatting of headings and subheadings
+- Fixes title overline/underline length issues
+- Standardizes section formatting
+- Runs automatically whenever you build documentation with `make html`
+
+This feature helps maintain professional-looking documentation without manual formatting. The formatting script is located at `docs/fix_rst_formatting.py` and is integrated into both the `make.bat` and `Makefile`.
 
 ## Contributing to this Template
 

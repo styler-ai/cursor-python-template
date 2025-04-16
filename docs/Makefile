@@ -11,7 +11,13 @@ BUILDDIR      = _build
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-.PHONY: help Makefile
+.PHONY: help Makefile html cleanbuild
+
+# Add custom target for HTML that first runs the formatting script
+html: Makefile
+	@echo "Running RST formatting fix script..."
+	@python3 fix_rst_formatting.py
+	@$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option. $(O) is meant as a shortcut for $(SPHINXOPTS).
@@ -21,4 +27,6 @@ help:
 # Command to build the documentation cleanly
 cleanbuild:
 	rm -rf $(BUILDDIR)/*
-	$(MAKE) html 
+	@echo "Running RST formatting fix script..."
+	@python3 fix_rst_formatting.py
+	$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O) 
