@@ -1,5 +1,15 @@
 # Project Name Placeholder
 
+## Documentation Template
+
+This project includes a Sphinx documentation template in the `/template-docs/` folder.
+
+- If you want to use this template, **rename `/template-docs/` to `/docs/`**.
+- `/docs/` is the standard location for Sphinx documentation and is compatible with GitHub Pages.
+- If you already have your own documentation, you can ignore or remove `/template-docs/`.
+
+For more information on Sphinx, see [sphinx-doc.org](https://www.sphinx-doc.org/).
+
 ## Overview
 
 (Provide a brief overview of the project here. Explain it's a template for Python projects, including standard structure and generic AI rules.)
