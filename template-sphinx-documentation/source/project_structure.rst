@@ -14,12 +14,12 @@ The template follows a standardized directory layout designed to promote good Py
     │   └── rules/                  # Cursor AI rules
     ├── .github/                    # GitHub configuration (optional)
     │   └── workflows/              # GitHub Actions workflows (optional)
-    ├── docs/                       # Documentation
-    │   ├── source/                 # Sphinx documentation source
-    │   ├── conf.py                 # Sphinx configuration
-    │   ├── index.md                # Documentation index
-    │   ├── make.bat                # Windows build script
-    │   └── Makefile                # Unix build script
+    ├── template-sphinx-documentation/  # Sphinx documentation source, config, and build scripts
+    │   ├── source/                 # Sphinx documentation source files
+    │   ├── fix_rst_formatting.py   # Automatic RST formatting script
+    │   ├── Makefile                # Unix build script
+    │   └── make.bat                # Windows build script
+    ├── docs/                       # Built HTML output for GitHub Pages (do not edit by hand)
     ├── scripts/                    # Utility scripts
     ├── src/                        # Source code
     │   └── project_name_placeholder/ # Main package directory (to be renamed)
@@ -54,6 +54,15 @@ This directory contains rule files that guide Cursor's AI in providing context-a
 - ``python-rules.mdc``: Python coding standards
 - ``testing-rules.mdc``: Testing requirements and best practices
 
+.template-sphinx-documentation/
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This directory contains all Sphinx documentation source files, configuration, and build scripts:
+
+- ``source/``: Main documentation source files (reStructuredText)
+- ``fix_rst_formatting.py``: Script to automatically fix common RST formatting issues
+- ``Makefile``: Unix build script (runs formatting script automatically)
+- ``make.bat``: Windows build script (runs formatting script automatically)
+
 src/
 ~~~~~~~~~
 
@@ -71,15 +80,9 @@ The ``tests/`` directory contains all test files:
 - The test directory structure should mirror the package structure in ``src/``
 - Tests are configured to run with pytest
 
-docs/
-~~~~~~~~~~
-
-The ``docs/`` directory contains project documentation:
-
-- Uses Sphinx for generating documentation
-- Includes a basic configuration in ``conf.py``
-- Contains an index file with a starting structure
-- Includes build scripts for both Windows (``make.bat``) and Unix (``Makefile``)
+/docs/
+~~~~~~~~~~~
+This directory contains **only** the built HTML output for GitHub Pages. Do not edit files here by hand. The contents are overwritten each time you build and publish the documentation.
 
 scripts/
 ~~~~~~~~~~~~~
@@ -90,6 +93,22 @@ The ``scripts/`` directory is for utility scripts and tools:
 - Development utilities
 - Build scripts
 - Any other helpful automation tools
+
+Automatic RST Formatting Script
+-------------------------------
+
+The template includes a script to automatically fix common formatting issues in reStructuredText (RST) documentation files:
+
+- **Script:** ``fix_rst_formatting.py`` (in ``/template-sphinx-documentation/``)
+- **Purpose:**
+  - Ensures title overlines/underlines match the title length
+  - Fixes section and subsection heading formatting
+  - Standardizes formatting across all documentation files
+- **Integration:**
+  - The script runs automatically every time you build the documentation using ``make html`` (Unix) or ``make.bat html`` (Windows)
+  - You can also run it manually: ``python fix_rst_formatting.py`` from within ``/template-sphinx-documentation/``
+- **Benefit:**
+  - Helps prevent common Sphinx warnings and ensures professional, consistent documentation formatting.
 
 Configuration Files
 -------------------

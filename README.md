@@ -10,7 +10,31 @@ This project includes a Sphinx documentation template in the `/template-sphinx-d
 - `/docs/` is the standard location for Sphinx documentation and is compatible with GitHub Pages.
 - If you already have your own documentation, you can ignore or remove `/template-sphinx-documentation/`.
 
+**Project Structure:**
+
+- `/template-sphinx-documentation/`: Sphinx documentation source files, configuration, and build scripts (including `fix_rst_formatting.py`, `Makefile`, and `make.bat`).
+- `/docs/`: Contains only the built HTML output for GitHub Pages. Do not edit by hand.
+- `/src/`: Python package code.
+- `/tests/`: Test files.
+- `/scripts/`: Utility scripts.
+- `/.cursor/rules/`: Cursor AI rules.
+
 For more information on Sphinx, see [sphinx-doc.org](https://www.sphinx-doc.org/).
+
+## Automatic RST Formatting for Documentation
+
+This template includes an automatic formatting script for reStructuredText (RST) documentation files:
+
+- **Script:** `fix_rst_formatting.py` (located in `/template-sphinx-documentation/`)
+- **Purpose:**
+  - Ensures title overlines/underlines match the title length
+  - Fixes section and subsection heading formatting
+  - Standardizes formatting across all documentation files
+- **How it works:**
+  - The script runs automatically every time you build the documentation using `make html` (Unix) or `make.bat html` (Windows)
+  - You can also run it manually: `python fix_rst_formatting.py` from within `/template-sphinx-documentation/`
+- **Benefit:**
+  - Helps prevent common Sphinx warnings and ensures professional, consistent documentation formatting.
 
 ## Overview
 

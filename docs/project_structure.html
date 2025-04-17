@@ -50,12 +50,14 @@
 <li class="toctree-l2"><a class="reference internal" href="#directory-layout">Directory Layout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#key-components">Key Components</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#cursor-rules">.cursor/rules/</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#template-sphinx-documentation">.template-sphinx-documentation/</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#src">src/</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tests">tests/</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#docs">docs/</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docs">/docs/</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#scripts">scripts/</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#automatic-rst-formatting-script">Automatic RST Formatting Script</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configuration-files">Configuration Files</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#pyproject-toml">pyproject.toml</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#requirements-txt">requirements.txt</a></li>
@@ -107,12 +109,12 @@
 │   └── rules/                  # Cursor AI rules
 ├── .github/                    # GitHub configuration (optional)
 │   └── workflows/              # GitHub Actions workflows (optional)
-├── docs/                       # Documentation
-│   ├── source/                 # Sphinx documentation source
-│   ├── conf.py                 # Sphinx configuration
-│   ├── index.md                # Documentation index
-│   ├── make.bat                # Windows build script
-│   └── Makefile                # Unix build script
+├── template-sphinx-documentation/  # Sphinx documentation source, config, and build scripts
+│   ├── source/                 # Sphinx documentation source files
+│   ├── fix_rst_formatting.py   # Automatic RST formatting script
+│   ├── Makefile                # Unix build script
+│   └── make.bat                # Windows build script
+├── docs/                       # Built HTML output for GitHub Pages (do not edit by hand)
 ├── scripts/                    # Utility scripts
 ├── src/                        # Source code
 │   └── project_name_placeholder/ # Main package directory (to be renamed)
@@ -148,6 +150,16 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">testing-rules.mdc</span></code>: Testing requirements and best practices</p></li>
 </ul>
 </section>
+<section id="template-sphinx-documentation">
+<h3>.template-sphinx-documentation/<a class="headerlink" href="#template-sphinx-documentation" title="Link to this heading"></a></h3>
+<p>This directory contains all Sphinx documentation source files, configuration, and build scripts:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">source/</span></code>: Main documentation source files (reStructuredText)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fix_rst_formatting.py</span></code>: Script to automatically fix common RST formatting issues</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Makefile</span></code>: Unix build script (runs formatting script automatically)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make.bat</span></code>: Windows build script (runs formatting script automatically)</p></li>
+</ul>
+</section>
 <section id="src">
 <h3>src/<a class="headerlink" href="#src" title="Link to this heading"></a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">src/</span></code> directory contains the main package code:</p>
@@ -166,14 +178,8 @@
 </ul>
 </section>
 <section id="docs">
-<h3>docs/<a class="headerlink" href="#docs" title="Link to this heading"></a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">docs/</span></code> directory contains project documentation:</p>
-<ul class="simple">
-<li><p>Uses Sphinx for generating documentation</p></li>
-<li><p>Includes a basic configuration in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code></p></li>
-<li><p>Contains an index file with a starting structure</p></li>
-<li><p>Includes build scripts for both Windows (<code class="docutils literal notranslate"><span class="pre">make.bat</span></code>) and Unix (<code class="docutils literal notranslate"><span class="pre">Makefile</span></code>)</p></li>
-</ul>
+<h3>/docs/<a class="headerlink" href="#docs" title="Link to this heading"></a></h3>
+<p>This directory contains <strong>only</strong> the built HTML output for GitHub Pages. Do not edit files here by hand. The contents are overwritten each time you build and publish the documentation.</p>
 </section>
 <section id="scripts">
 <h3>scripts/<a class="headerlink" href="#scripts" title="Link to this heading"></a></h3>
@@ -185,6 +191,22 @@
 <li><p>Any other helpful automation tools</p></li>
 </ul>
 </section>
+</section>
+<section id="automatic-rst-formatting-script">
+<h2>Automatic RST Formatting Script<a class="headerlink" href="#automatic-rst-formatting-script" title="Link to this heading"></a></h2>
+<p>The template includes a script to automatically fix common formatting issues in reStructuredText (RST) documentation files:</p>
+<ul class="simple">
+<li><p><strong>Script:</strong> <code class="docutils literal notranslate"><span class="pre">fix_rst_formatting.py</span></code> (in <code class="docutils literal notranslate"><span class="pre">/template-sphinx-documentation/</span></code>)</p></li>
+<li><p><strong>Purpose:</strong>
+- Ensures title overlines/underlines match the title length
+- Fixes section and subsection heading formatting
+- Standardizes formatting across all documentation files</p></li>
+<li><p><strong>Integration:</strong>
+- The script runs automatically every time you build the documentation using <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> (Unix) or <code class="docutils literal notranslate"><span class="pre">make.bat</span> <span class="pre">html</span></code> (Windows)
+- You can also run it manually: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">fix_rst_formatting.py</span></code> from within <code class="docutils literal notranslate"><span class="pre">/template-sphinx-documentation/</span></code></p></li>
+<li><p><strong>Benefit:</strong>
+- Helps prevent common Sphinx warnings and ensures professional, consistent documentation formatting.</p></li>
+</ul>
 </section>
 <section id="configuration-files">
 <h2>Configuration Files<a class="headerlink" href="#configuration-files" title="Link to this heading"></a></h2>
