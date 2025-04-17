@@ -2,22 +2,34 @@
 
 [📖 **View the Online Documentation**](https://styler-ai.github.io/cursor-python-template/index.html)
 
-## Documentation Template
+## Documentation Folders Overview
 
-This project includes a Sphinx documentation template in the `/template-sphinx-documentation/` folder.
+This project provides two separate documentation folders:
 
-- If you want to use this template, **rename `/template-sphinx-documentation/` to `/docs/`**.
-- `/docs/` is the standard location for Sphinx documentation and is compatible with GitHub Pages.
-- If you already have your own documentation, you can ignore or remove `/template-sphinx-documentation/`.
+- **/template-docs/**: This is a ready-to-use Sphinx documentation template for users of this Python project template. Copy or rename this folder to `/docs/` in your own project to quickly set up Sphinx documentation. It includes example configuration, build scripts, and a formatting script.
+- **/template-sphinx-documentation/**: This folder contains the documentation for the template project itself (i.e., the documentation you are reading now). It is not intended to be copied or used as a template by users.
+- **/docs/**: This folder is used for the built HTML output of the template project's own documentation, and is published via GitHub Pages. Do not edit by hand.
 
-**Project Structure:**
+## How to Use the Sphinx Template
 
-- `/template-sphinx-documentation/`: Sphinx documentation source files, configuration, and build scripts (including `fix_rst_formatting.py`, `Makefile`, and `make.bat`).
-- `/docs/`: Contains only the built HTML output for GitHub Pages. Do not edit by hand.
-- `/src/`: Python package code.
-- `/tests/`: Test files.
-- `/scripts/`: Utility scripts.
-- `/.cursor/rules/`: Cursor AI rules.
+1. **For your own project:**
+   - Copy or rename `/template-docs/` to `/docs/` in your new repository.
+   - Edit the contents (add your `.rst` or `.md` files, update `conf.py`, etc.).
+   - Use the provided `Makefile` or `make.bat` to build your documentation.
+   - The included `fix_rst_formatting.py` script will help keep your RST files clean and warning-free.
+
+2. **For this template project:**
+   - `/template-sphinx-documentation/` is only for the documentation of this template itself. You do not need to use or copy it for your own project.
+
+## Project Structure
+
+- `/template-docs/`: Sphinx documentation template for users (copy/rename to `/docs/` in your own project)
+- `/template-sphinx-documentation/`: Documentation for this template project (not for user projects)
+- `/docs/`: Built HTML output for GitHub Pages (do not edit by hand)
+- `/src/`: Python package code
+- `/tests/`: Test files
+- `/scripts/`: Utility scripts
+- `/.cursor/rules/`: Cursor AI rules
 
 For more information on Sphinx, see [sphinx-doc.org](https://www.sphinx-doc.org/).
 
@@ -103,27 +115,4 @@ This template is maintained by Shaun Tyler (styler-ai).
    # source venv/bin/activate
    ```
 3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
    ```
-4. Install the package in editable mode (for development):
-   ```bash
-   pip install -e ".[dev]" # Installs main package and dev dependencies
-   ```
-
-## Usage
-
-(Provide instructions on how to use the project/library generated from this template.)
-
-## Running Tests
-
-```bash
-pytest
-```
-
-## Building Documentation
-
-```bash
-cd docs
-make html # On Windows, use .\make.bat html
-```
