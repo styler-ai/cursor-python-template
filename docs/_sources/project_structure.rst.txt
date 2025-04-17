@@ -2,6 +2,27 @@
 Project Structure
 =========================
 
+Overview of Documentation Folders
+---------------------------------
+
+This project provides two separate documentation folders:
+
+- **/template-docs/**: This is a ready-to-use Sphinx documentation template for users of this Python project template. Copy or rename this folder to `/docs/` in your own project to quickly set up Sphinx documentation. It includes example configuration, build scripts, and a formatting script.
+- **/template-sphinx-documentation/**: This folder contains the documentation for the template project itself (i.e., the documentation you are reading now). It is not intended to be copied or used as a template by users.
+- **/docs/**: This folder is used for the built HTML output of the template project's own documentation, and is published via GitHub Pages. Do not edit by hand.
+
+How to Use the Sphinx Template
+------------------------------
+
+1. **For your own project:**
+   - Copy or rename `/template-docs/` to `/docs/` in your new repository.
+   - Edit the contents (add your `.rst` or `.md` files, update `conf.py`, etc.).
+   - Use the provided `Makefile` or `make.bat` to build your documentation.
+   - The included `fix_rst_formatting.py` script will help keep your RST files clean and warning-free.
+
+2. **For this template project:**
+   - `/template-sphinx-documentation/` is only for the documentation of this template itself. You do not need to use or copy it for your own project.
+
 Directory Layout
 ----------------
 
@@ -14,7 +35,14 @@ The template follows a standardized directory layout designed to promote good Py
     │   └── rules/                  # Cursor AI rules
     ├── .github/                    # GitHub configuration (optional)
     │   └── workflows/              # GitHub Actions workflows (optional)
-    ├── template-sphinx-documentation/  # Sphinx documentation source, config, and build scripts
+    ├── template-docs/              # Sphinx documentation template for users
+    │   ├── conf.py                 # Sphinx configuration
+    │   ├── fix_rst_formatting.py   # Automatic RST formatting script
+    │   ├── Makefile                # Unix build script
+    │   ├── make.bat                # Windows build script
+    │   ├── index.md                # Example index file
+    │   └── rules-documentation/    # Example RST documentation
+    ├── template-sphinx-documentation/  # Documentation for this template project
     │   ├── source/                 # Sphinx documentation source files
     │   ├── fix_rst_formatting.py   # Automatic RST formatting script
     │   ├── Makefile                # Unix build script
@@ -54,9 +82,20 @@ This directory contains rule files that guide Cursor's AI in providing context-a
 - ``python-rules.mdc``: Python coding standards
 - ``testing-rules.mdc``: Testing requirements and best practices
 
+.template-docs/
+~~~~~~~~~~~~~~~~~~~~
+This directory is a Sphinx documentation template for users of this Python project template:
+
+- ``conf.py``: Sphinx configuration file
+- ``fix_rst_formatting.py``: Script to automatically fix common RST formatting issues
+- ``Makefile``: Unix build script (runs formatting script automatically)
+- ``make.bat``: Windows build script (runs formatting script automatically)
+- ``index.md``: Example Markdown index file
+- ``rules-documentation/``: Example RST documentation
+
 .template-sphinx-documentation/
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-This directory contains all Sphinx documentation source files, configuration, and build scripts:
+This directory contains all Sphinx documentation source files, configuration, and build scripts for the template project itself:
 
 - ``source/``: Main documentation source files (reStructuredText)
 - ``fix_rst_formatting.py``: Script to automatically fix common RST formatting issues

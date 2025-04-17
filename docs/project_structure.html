@@ -47,9 +47,12 @@
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Project Structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview-of-documentation-folders">Overview of Documentation Folders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-use-the-sphinx-template">How to Use the Sphinx Template</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#directory-layout">Directory Layout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#key-components">Key Components</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#cursor-rules">.cursor/rules/</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#template-docs">.template-docs/</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#template-sphinx-documentation">.template-sphinx-documentation/</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#src">src/</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tests">tests/</a></li>
@@ -101,6 +104,27 @@
              
   <section id="project-structure">
 <h1>Project Structure<a class="headerlink" href="#project-structure" title="Link to this heading"></a></h1>
+<section id="overview-of-documentation-folders">
+<h2>Overview of Documentation Folders<a class="headerlink" href="#overview-of-documentation-folders" title="Link to this heading"></a></h2>
+<p>This project provides two separate documentation folders:</p>
+<ul class="simple">
+<li><p><strong>/template-docs/</strong>: This is a ready-to-use Sphinx documentation template for users of this Python project template. Copy or rename this folder to <cite>/docs/</cite> in your own project to quickly set up Sphinx documentation. It includes example configuration, build scripts, and a formatting script.</p></li>
+<li><p><strong>/template-sphinx-documentation/</strong>: This folder contains the documentation for the template project itself (i.e., the documentation you are reading now). It is not intended to be copied or used as a template by users.</p></li>
+<li><p><strong>/docs/</strong>: This folder is used for the built HTML output of the template project’s own documentation, and is published via GitHub Pages. Do not edit by hand.</p></li>
+</ul>
+</section>
+<section id="how-to-use-the-sphinx-template">
+<h2>How to Use the Sphinx Template<a class="headerlink" href="#how-to-use-the-sphinx-template" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>For your own project:</strong>
+- Copy or rename <cite>/template-docs/</cite> to <cite>/docs/</cite> in your new repository.
+- Edit the contents (add your <cite>.rst</cite> or <cite>.md</cite> files, update <cite>conf.py</cite>, etc.).
+- Use the provided <cite>Makefile</cite> or <cite>make.bat</cite> to build your documentation.
+- The included <cite>fix_rst_formatting.py</cite> script will help keep your RST files clean and warning-free.</p></li>
+<li><p><strong>For this template project:</strong>
+- <cite>/template-sphinx-documentation/</cite> is only for the documentation of this template itself. You do not need to use or copy it for your own project.</p></li>
+</ol>
+</section>
 <section id="directory-layout">
 <h2>Directory Layout<a class="headerlink" href="#directory-layout" title="Link to this heading"></a></h2>
 <p>The template follows a standardized directory layout designed to promote good Python project organization:</p>
@@ -109,7 +133,14 @@
 │   └── rules/                  # Cursor AI rules
 ├── .github/                    # GitHub configuration (optional)
 │   └── workflows/              # GitHub Actions workflows (optional)
-├── template-sphinx-documentation/  # Sphinx documentation source, config, and build scripts
+├── template-docs/              # Sphinx documentation template for users
+│   ├── conf.py                 # Sphinx configuration
+│   ├── fix_rst_formatting.py   # Automatic RST formatting script
+│   ├── Makefile                # Unix build script
+│   ├── make.bat                # Windows build script
+│   ├── index.md                # Example index file
+│   └── rules-documentation/    # Example RST documentation
+├── template-sphinx-documentation/  # Documentation for this template project
 │   ├── source/                 # Sphinx documentation source files
 │   ├── fix_rst_formatting.py   # Automatic RST formatting script
 │   ├── Makefile                # Unix build script
@@ -150,9 +181,21 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">testing-rules.mdc</span></code>: Testing requirements and best practices</p></li>
 </ul>
 </section>
+<section id="template-docs">
+<h3>.template-docs/<a class="headerlink" href="#template-docs" title="Link to this heading"></a></h3>
+<p>This directory is a Sphinx documentation template for users of this Python project template:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">conf.py</span></code>: Sphinx configuration file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fix_rst_formatting.py</span></code>: Script to automatically fix common RST formatting issues</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Makefile</span></code>: Unix build script (runs formatting script automatically)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make.bat</span></code>: Windows build script (runs formatting script automatically)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">index.md</span></code>: Example Markdown index file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rules-documentation/</span></code>: Example RST documentation</p></li>
+</ul>
+</section>
 <section id="template-sphinx-documentation">
 <h3>.template-sphinx-documentation/<a class="headerlink" href="#template-sphinx-documentation" title="Link to this heading"></a></h3>
-<p>This directory contains all Sphinx documentation source files, configuration, and build scripts:</p>
+<p>This directory contains all Sphinx documentation source files, configuration, and build scripts for the template project itself:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">source/</span></code>: Main documentation source files (reStructuredText)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">fix_rst_formatting.py</span></code>: Script to automatically fix common RST formatting issues</p></li>
