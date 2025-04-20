@@ -4,11 +4,6 @@ globs:
 alwaysApply: false
 ---
 ---
-description: 
-globs: 
-alwaysApply: true
----
----
 description: Project structure rules and organization guidelines
 globs:
   - "**/*"
@@ -20,17 +15,17 @@ alwaysApply: true
 ## Directory Organization
 
 ### Root Level
-- `/src/contextkeeper/` - Main package code
+- `/src/project_name_placeholder/` - Main package code
 - `/tests/` - Test files
 - `/docs/` - Documentation
 - `/scripts/` - Development and setup scripts ONLY
-- `/.contextkeeper/` - Internal data ONLY (no scripts)
+- `/.project_data/` - Internal data ONLY (no scripts)
 - Configuration files (setup.py, requirements.txt, etc.)
 
 ### Scripts Location
 - ALL scripts must be in `/scripts/`
-- NEVER put scripts in `.contextkeeper/`
-- `.contextkeeper/` is for:
+- NEVER put scripts in `.project_data/`
+- `.project_data/` is for:
   - `db/` - SQLite database
   - `logs/` - Log files
   - NO OTHER DIRECTORIES ALLOWED
@@ -43,7 +38,7 @@ Development scripts in `/scripts/`:
 - Build scripts
 - Test runners
 
-### .contextkeeper Directory
+### .project_data Directory
 Strict contents:
 - `db/` - Database files only
 - `logs/` - Log files only
@@ -51,11 +46,11 @@ Strict contents:
 - NO other directories allowed
 
 ## File Organization
-- Python package code goes in `src/contextkeeper/`
+- Python package code goes in `src/project_name_placeholder/`
 - Tests go in `tests/`
 - Documentation in `docs/`
 - Development scripts in `scripts/`
-- Data files in `.contextkeeper/db/` or `.contextkeeper/logs/`
+- Data files in `.project_data/db/` or `.project_data/logs/`
 
 ## Naming Conventions
 - Python files: lowercase with underscores

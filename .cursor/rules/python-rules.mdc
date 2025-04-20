@@ -4,7 +4,7 @@ globs:
 alwaysApply: true
 ---
 ---
-description: Python-specific coding standards for ContextKeeper
+description: Python-specific coding standards for Python project templates
 globs:
   - "**/*.py"
 ---
@@ -42,8 +42,8 @@ import numpy as np
 import sqlalchemy as sa
 
 # Local
-from contextkeeper.memory import MemoryManager
-from contextkeeper.utils import format_context
+from project_name_placeholder.memory import MemoryManager
+from project_name_placeholder.utils import format_context
 ```
 
 ## Documentation
